@@ -3,6 +3,41 @@ layout: default
 ---
 
 <article class="container my-5">
+
+  <!-- Popular Blog Slider -->
+  <section class="mb-5">
+    <h2 class="text-center fw-bold mb-4">🔥 Popular Reads</h2>
+    <div id="popularBlogCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        {% assign popular_posts = site.posts | where: "popular", true | slice: 0, 3 %}
+        {% for post in popular_posts %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="d-flex flex-column align-items-center text-center p-4">
+              <h5>
+                <a href="{{ post.url | relative_url }}" class="text-decoration-none text-dark fw-bold">
+                  {{ post.title }}
+                </a>
+              </h5>
+              <p class="text-muted mb-2"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
+              <p class="w-75">{{ post.description | truncatewords: 20 }}</p>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#popularBlogCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#popularBlogCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Blog Content -->
   <header class="mb-4 text-center">
     <h1 class="fw-bold">{{ page.title }}</h1>
     <p class="text-muted">

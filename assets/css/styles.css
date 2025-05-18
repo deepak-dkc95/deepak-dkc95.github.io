@@ -73,7 +73,7 @@ footer a:hover {
   text-decoration: none;
 }
 
-/* Blog list (assumed from blog-list.html) */
+/* Blog list */
 .blog-post {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
@@ -119,14 +119,54 @@ form.needs-validation .form-control:valid:focus {
   font-size: 1.1rem;
 }
 
+/* === Popular Blog Slider === */
+#popularBlogCarousel {
+  border: 2px solid #0056b3;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 86, 179, 0.1);
+}
+
+#popularBlogCarousel .carousel-item {
+  min-height: 220px;          /* keeps slide height consistent */
+}
+
+#popularBlogCarousel h5 a {
+  color: #0056b3;
+  transition: color 0.3s ease;
+}
+
+#popularBlogCarousel h5 a:hover {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+#popularBlogCarousel p.w-75 {
+  font-size: 0.95rem;
+}
+
+#popularBlogCarousel .carousel-control-prev-icon,
+#popularBlogCarousel .carousel-control-next-icon {
+  filter: brightness(0.2) invert(1); /* white arrows */
+}
+
+#popularBlogCarousel .carousel-control-prev,
+#popularBlogCarousel .carousel-control-next {
+  width: 8%;
+}
+
 /* Responsive tweaks */
 @media (max-width: 576px) {
   .navbar-brand {
     font-size: 1.4rem;
   }
-  
+
   .btn {
     width: 100%;
     margin-bottom: 0.5rem;
+  }
+
+  #popularBlogCarousel .carousel-item {
+    min-height: 260px;
   }
 }

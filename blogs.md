@@ -3,6 +3,7 @@ layout: default
 title: Blogs
 description: Read my latest thoughts and tech write-ups.
 permalink: /blogs/
+popular: true
 ---
 
 <section class="container my-5">
