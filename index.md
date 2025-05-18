@@ -14,7 +14,13 @@ description: Engineer • Learner • Cloud & Cybersecurity Enthusiast
 
 <hr>
 
-{% include blog-list.html %}
+{% assign latest_post = site.posts | first %}
+<article class="blog-post">
+  <h2><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h2>
+  <p class="text-muted"><small>📅 {{ latest_post.date | date: "%B %d, %Y" }}</small></p>
+  <p>{{ latest_post.excerpt | strip_html | truncatewords: 30 }}</p>
+  <a href="{{ latest_post.url | relative_url }}" class="read-more">Read More →</a>
+</article>
 
 <hr>
 
