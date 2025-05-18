@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>{{ page.title }}</title>
-</head>
-<body>
-  <h1>{{ page.title }}</h1>
-  <div>
-    {{ content }}<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>{{ page.title }}</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,26 +8,21 @@
     }
     .profile-img {
       float: left;
-      width: 150px;      /* fixed width */
-      height: auto;      /* auto height for proportional resizing */
+      width: 150px;
+      height: auto;
       margin-right: 20px;
-      border-radius: 10px; /* rounded corners */
-      object-fit: cover;  /* crop nicely if needed */
+      border-radius: 10px;
+      object-fit: cover;
     }
     .content {
-      overflow: hidden; /* clear the float */
+      overflow: hidden;
     }
   </style>
 </head>
 <body>
   <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
   <div class="content">
-    <h1>{{ page.title }}</h1>
     {{ content }}
-  </div>
-</body>
-</html>
-
   </div>
 </body>
 </html>
