@@ -9,17 +9,18 @@
 
     <div class="collapse navbar-collapse" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% assign current_url = page.url | downcase %}
         <li class="nav-item">
-          <a class="nav-link" href="{{ '/' | relative_url }}">Home</a>
+          <a class="nav-link {% if current_url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ '/about' | relative_url }}">About</a>
+          <a class="nav-link {% if current_url == '/about/' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ '/blogs' | relative_url }}">Blogs</a>
+          <a class="nav-link {% if current_url == '/blogs/' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ '/contact' | relative_url }}">Contact</a>
+          <a class="nav-link {% if current_url == '/contact/' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a>
         </li>
       </ul>
     </div>

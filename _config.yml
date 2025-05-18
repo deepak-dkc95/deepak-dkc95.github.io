@@ -35,7 +35,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: post
+      layout: posts
   - scope:
       path: ""
       type: "pages"
