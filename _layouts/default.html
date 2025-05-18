@@ -6,6 +6,19 @@
       font-family: Arial, sans-serif;
       margin: 20px;
     }
+    nav {
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0366d6;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     .profile-img {
       float: left;
       width: 150px;
@@ -20,6 +33,12 @@
   </style>
 </head>
 <body>
+  <nav>
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/about.html' | relative_url }}">About</a>
+    <a href="{{ '/blogs.html' | relative_url }}">Blogs</a>
+  </nav>
+
   <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
   <div class="content">
     {{ content }}
