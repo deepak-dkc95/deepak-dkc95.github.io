@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0; /* remove default margin to let navbar fill */
+      padding: 0;
     }
+
     nav {
+      background-color: #0366d6; /* nice blue */
       display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
+      justify-content: center; /* center nav items horizontally */
+      gap: 15px;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap; /* wrap buttons on small screens */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
     nav a {
       text-decoration: none;
     }
+
     nav button {
-      background-color: #0366d6;
+      background-color: white;
+      color: #0366d6;
       border: none;
-      color: white;
       padding: 10px 18px;
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-width: 80px;
     }
+
     nav button:hover {
       background-color: #024f9d;
+      color: white;
     }
+
+    /* Content below navbar */
+    .page-content {
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     .profile-img {
       float: left;
       width: 150px;
@@ -35,8 +58,26 @@
       border-radius: 10px;
       object-fit: cover;
     }
+
     .content {
       overflow: hidden;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      nav {
+        justify-content: center;
+        gap: 10px;
+      }
+      nav button {
+        padding: 8px 14px;
+        font-size: 14px;
+        min-width: 60px;
+      }
+      .profile-img {
+        width: 100px;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
@@ -47,12 +88,13 @@
     <a href="{{ '/blogs.html' | relative_url }}"><button>Blogs</button></a>
   </nav>
 
-  {% if page.url == "/" or page.url == "/about.html" %}
-    <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
-  {% endif %}
-
-  <div class="content">
-    {{ content }}
+  <div class="page-content">
+    {% if page.url == "/" or page.url == "/about.html" %}
+      <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
+    {% endif %}
+    <div class="content">
+      {{ content }}
+    </div>
   </div>
 </body>
 </html>
