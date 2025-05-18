@@ -110,20 +110,21 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="{{ '/' | relative_url }}"><button>Home</button></a>
-    <a href="{{ '/about.html' | relative_url }}"><button>About</button></a>
-    <a href="{{ '/blogs.html' | relative_url }}"><button>Blogs</button></a>
-  </nav>
+  <div class="wrapper"></div>
+    <nav>
+        <a href="{{ '/' | relative_url }}"><button>Home</button></a>
+        <a href="{{ '/about.html' | relative_url }}"><button>About</button></a>
+        <a href="{{ '/blogs.html' | relative_url }}"><button>Blogs</button></a>
+    </nav>
 
-  <div class="page-content">
-    {% if page.url == "/" or page.url == "/about.html" %}
-      <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
-    {% endif %}
-    <div class="content">
-      {{ content }}
+    <div class="page-content">
+        {% if page.url == "/" or page.url == "/about.html" %}
+        <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
+        {% endif %}
+        <div class="content">
+        {{ content }}
+        </div>
     </div>
-  </div>
     <footer>
     <div class="social-buttons">
         <a href="https://www.linkedin.com/in/deepak-chourasia-3bb283256/" target="_blank"><button>LinkedIn</button></a>
@@ -132,5 +133,6 @@
         <a href="https://www.yourquote.in/deepk-pars-bxppw/quotes" target="_blank"><button>YourQuote</button></a>
     </div>
     </footer>
+  </div>
 </body>
 </html>
