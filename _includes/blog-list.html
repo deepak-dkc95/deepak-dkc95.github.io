@@ -1,0 +1,18 @@
+<section class="container my-5">
+  <h2 class="text-center mb-4">Latest Blogs</h2>
+
+  {% for post in site.posts limit:5 %}
+    <div class="blog-post mb-4">
+      <h3>
+        <a href="{{ post.url | relative_url }}" class="text-decoration-none text-primary fw-bold">
+          {{ post.title }}
+        </a>
+      </h3>
+      <p class="text-muted mb-1">
+        <small>📅 {{ post.date | date: "%B %d, %Y" }}</small>
+      </p>
+      <p>{{ post.description | truncatewords: 30 }}</p>
+      <a href="{{ post.url | relative_url }}" class="read-more text-decoration-none">Read more →</a>
+    </div>
+  {% endfor %}
+</section>
