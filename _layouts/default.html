@@ -39,7 +39,10 @@
     <a href="{{ '/blogs.html' | relative_url }}">Blogs</a>
   </nav>
 
-  <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
+  {% if page.url == "/" or page.url == "/about.html" %}
+    <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
+  {% endif %}
+
   <div class="content">
     {{ content }}
   </div>
