@@ -1,33 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="{{ '/assets/css/default.css' | relative_url }}">
+  {% include head.html %}
 </head>
 <body>
-  <div class="wrapper">
-    <nav>
-        <a href="{{ '/' | relative_url }}"><button>Home</button></a>
-        <a href="{{ '/about.html' | relative_url }}"><button>About</button></a>
-        <a href="{{ '/blogs.html' | relative_url }}"><button>Blogs</button></a>
-    </nav>
 
-    <div class="page-content">
-        {% if page.url == "/" or page.url == "/about.html" %}
-        <img src="{{ '/assets/deepak.jpg' | relative_url }}" alt="Deepak" class="profile-img" />
-        {% endif %}
-        <div class="content">
-        {{ content }}
-        </div>
-    </div>
-    <footer>
-    <div class="social-buttons">
-        <a href="https://www.linkedin.com/in/deepak-chourasia-3bb283256/" target="_blank"><button>LinkedIn</button></a>
-        <a href="https://github.com/deepak-dkc95" target="_blank"><button>GitHub</button></a>
-        <a href="https://deepakdc94.blogspot.com" target="_blank"><button>Blogger</button></a>
-        <a href="https://www.yourquote.in/deepk-pars-bxppw/quotes" target="_blank"><button>YourQuote</button></a>
-    </div>
-    </footer>
-  </div>
+  <!-- Navbar -->
+  {% include navbar.html %}
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  {% include footer.html %}
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

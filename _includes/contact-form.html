@@ -1,0 +1,40 @@
+<section class="container my-5">
+  <h2 class="text-center mb-4">Get in Touch</h2>
+
+  <!-- Success Message -->
+  <div id="success-alert" class="alert alert-success d-none text-center" role="alert">
+    ✅ Thank you! Your message has been sent.
+  </div>
+
+  <form action="https://formspree.io/f/xeognbvb" method="POST" class="row g-3 needs-validation" novalidate>
+    <div class="col-md-6">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+      <div class="invalid-feedback">Please enter your name.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="_replyto" required>
+      <div class="invalid-feedback">Please enter a valid email.</div>
+    </div>
+
+    <div class="col-12">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      <div class="invalid-feedback">Please enter your message.</div>
+    </div>
+
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary px-5">Send Message</button>
+    </div>
+  </form>
+</section>
+
+<script>
+  // Show success message if ?success=1 is in URL
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("success") === "1") {
+    document.getElementById("success-alert").classList.remove("d-none");
+  }
+</script>

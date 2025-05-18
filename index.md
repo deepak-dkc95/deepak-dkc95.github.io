@@ -1,43 +1,21 @@
 ---
 layout: default
-title: Home
+title: Hi, I'm Deepak
+description: Engineer • Learner • Cloud & Cybersecurity Enthusiast
 ---
 
-<h1 style="font-size: 2.5rem; margin-bottom: 10px;">Hi, I'm Deepak Chourasia</h1>
-<p style="font-size: 1.2rem; margin-bottom: 20px;">Engineer • Learner • Cloud & Cybersecurity Enthusiast</p>
+<div class="text-center my-5">
+  <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="rounded-circle shadow" width="150" height="150">
+  <h1 class="mt-3 fw-bold">Hi, I'm Deepak Chourasia</h1>
+  <p class="lead">Engineer • Learner • Cloud & Cybersecurity Enthusiast</p>
+  <a href="/about" class="btn btn-outline-primary m-2">More About Me</a>
+  <a href="/assets/resume.pdf" class="btn btn-primary m-2" download>Download Resume</a>
+</div>
 
-<a href="{{ '/assets/resume.pdf' | relative_url }}" download>
-  <button style="background-color: #0366d6; color: white; padding: 12px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Download Resume</button>
-</a>
+<hr>
 
-<hr style="margin: 40px 0;">
+{% include blog-list.html %}
 
-<h2>About Me</h2>
-<p>
-  I'm a passionate engineer who enjoys building, learning, and simplifying complex tech. With a strong foundation in Python, AWS, Linux, and Cybersecurity, I like creating smart and efficient solutions.
-</p>
-<a href="{{ '/about.html' | relative_url }}">
-  <button style="margin-top: 10px;">More About Me</button>
-</a>
+<hr>
 
-<hr style="margin: 40px 0;">
-
-<h2>Skills</h2>
-<ul>
-  <li>Python (Core + Automation)</li>
-  <li>AWS (EC2, S3, IAM, etc.)</li>
-  <li>Linux Troubleshooting</li>
-  <li>Cybersecurity Fundamentals</li>
-  <li>Docker & Git</li>
-</ul>
-
-<hr style="margin: 40px 0;">
-
-<h2>Recent Blogs</h2>
-<ul>
-  <li><a href="{{ '/blogs.html' | relative_url }}">Why I Chose AWS Over Azure</a></li>
-  <li><a href="{{ '/blogs.html' | relative_url }}">Understanding Linux File Permissions</a></li>
-</ul>
-<a href="{{ '/blogs.html' | relative_url }}">
-  <button style="margin-top: 10px;">View All Blogs</button>
-</a>
+{% include contact-form.html %}
