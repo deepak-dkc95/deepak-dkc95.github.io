@@ -1,42 +1,60 @@
 /* General Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #f8f9fa, #e9f7ff);
-  color: #212529;
-  transition: background 0.5s ease;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background: linear-gradient(120deg, #ffffff, #f0faff);
+  color: #343a40;
 }
 
 .container {
   max-width: 960px;
 }
 
-/* Navbar */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  color: #0056b3;
+}
+
+/* Improved Navbar */
 .navbar {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0,86,179,0.9) !important;
+  background: linear-gradient(135deg, #0056b3, #003d80) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .navbar-brand {
-  font-size: 1.6rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.8px;
 }
 
-.nav-link {
-  transition: color 0.3s;
+.navbar-nav .nav-link {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8) !important;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
   color: #ffd700 !important;
+  transform: translateY(-2px);
 }
 
 /* Buttons */
 .btn {
+  border-radius: 30px;
   transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .btn-primary,
