@@ -1,7 +1,7 @@
 title: "Deepak Chourasia"
 description: "Engineer. Creator. Curious Mind."
-baseurl: "" # Keep it blank for GitHub Pages
-url: "https://deepak-dkc95.github.io" # Your GitHub Pages URL
+baseurl: "" # Leave blank for GitHub Pages
+url: "https://deepak-dkc95.github.io"
 
 # Build settings
 theme: minima
@@ -11,25 +11,28 @@ highlighter: rouge
 # Permalinks
 permalink: /:categories/:year/:month/:day/:title/
 
-# Collections (optional if you want to organize custom content)
-# collections:
-#   projects:
-#     output: true
-
-# Plugins (you can enable more if needed)
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Exclude these from build
+# SEO tag config
+seo:
+  name: "Deepak Chourasia"
+  type: "Person"
+  twitter:
+    username: deepakdkc95
+    card: summary_large_image
+
+# Exclude from build
 exclude:
   - README.md
   - node_modules
   - Gemfile
   - Gemfile.lock
 
-# Defaults for posts/pages
+# Defaults for posts and pages
 defaults:
   - scope:
       path: ""
@@ -41,3 +44,14 @@ defaults:
       type: "pages"
     values:
       layout: default
+
+# Markdown options
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+# Future-proofing
+future: true
+lsi: false
+incremental: false
