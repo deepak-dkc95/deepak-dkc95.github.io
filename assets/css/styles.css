@@ -1,9 +1,10 @@
 /* General body and text */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9fafb;
+  background: linear-gradient(to right, #f8f9fa, #e9f7ff);
   color: #212529;
   line-height: 1.6;
+  transition: background 0.5s ease;
 }
 
 /* Container spacing overrides */
@@ -25,10 +26,19 @@ body {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: #ffd700; /* Gold highlight */
+  color: #ffd700;
 }
 
 /* Buttons */
+.btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 .btn-primary {
   background-color: #0056b3;
   border-color: #0056b3;
@@ -53,31 +63,24 @@ body {
   color: #fff;
 }
 
-/* Rounded profile image on index */
+/* Rounded profile image */
 .rounded-circle {
   border: 4px solid #0056b3;
 }
 
-/* Footer styles */
-footer {
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #ffffff;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #ffd700;
-  text-decoration: none;
-}
-
-/* Blog list */
+/* Blog post box */
 .blog-post {
+  transition: all 0.3s ease-in-out;
+  border-left: 5px solid #0d6efd;
+  background: white;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+}
+
+.blog-post:hover {
+  border-left-color: #6610f2;
 }
 
 .blog-post h2 {
@@ -94,6 +97,24 @@ footer a:hover {
 
 .blog-post a.read-more:hover {
   color: #ffd700;
+}
+
+/* Footer styles */
+footer {
+  font-size: 0.9rem;
+  background-color: #003d80;
+  color: white;
+  padding: 1.5rem 0;
+}
+
+footer a {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffd700;
+  text-decoration: none;
 }
 
 /* Contact form tweaks */
@@ -119,7 +140,7 @@ form.needs-validation .form-control:valid:focus {
   font-size: 1.1rem;
 }
 
-/* === Popular Blog Slider === */
+/* Popular Blog Slider */
 #popularBlogCarousel {
   border: 2px solid #0056b3;
   border-radius: 12px;
@@ -128,7 +149,7 @@ form.needs-validation .form-control:valid:focus {
 }
 
 #popularBlogCarousel .carousel-item {
-  min-height: 220px;          /* keeps slide height consistent */
+  min-height: 220px;
 }
 
 #popularBlogCarousel h5 a {
@@ -147,12 +168,42 @@ form.needs-validation .form-control:valid:focus {
 
 #popularBlogCarousel .carousel-control-prev-icon,
 #popularBlogCarousel .carousel-control-next-icon {
-  filter: brightness(0.2) invert(1); /* white arrows */
+  filter: brightness(0.2) invert(1);
 }
 
 #popularBlogCarousel .carousel-control-prev,
 #popularBlogCarousel .carousel-control-next {
   width: 8%;
+}
+
+/* Animations (used in index.md) */
+.animate__animated {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 /* Responsive tweaks */
