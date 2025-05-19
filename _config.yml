@@ -1,23 +1,22 @@
 title: "Deepak Chourasia"
 description: "Engineer. Creator. Curious Mind."
+author: "Deepak Chourasia"
 baseurl: "" # Leave blank for GitHub Pages
 url: "https://deepak-dkc95.github.io"
 
-# Build settings
 theme: minima
 markdown: kramdown
 highlighter: rouge
 
-# Permalinks
 permalink: /:categories/:year/:month/:day/:title/
 
-# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
 
-# SEO tag config
+# SEO settings
 seo:
   name: "Deepak Chourasia"
   type: "Person"
@@ -25,14 +24,30 @@ seo:
     username: deepakdkc95
     card: summary_large_image
 
-# Exclude from build
+# Social links
+social_links:
+  linkedin: "https://www.linkedin.com/in/deepak-chourasia-3bb283256"
+  github: "https://github.com/deepak-dkc95"
+  blog: "https://deepakdc94.blogspot.com/"
+  yourquote: "https://yourquote.in/deepakdc94"
+
+# Collections
+collections:
+  projects:
+    output: true
+
+# Pagination
+paginate: 5
+paginate_path: "/blogs/page:num/"
+
+# Exclude files
 exclude:
   - README.md
   - node_modules
   - Gemfile
   - Gemfile.lock
 
-# Defaults for posts and pages
+# Default settings
 defaults:
   - scope:
       path: ""

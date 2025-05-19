@@ -8,12 +8,12 @@ description: Engineer • Learner • Cloud & Cybersecurity Enthusiast
 <section class="text-center my-5 animate__animated animate__fadeIn">
   <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="rounded-circle shadow mb-3 border border-4 border-primary" width="150" height="150">
   <h1 class="fw-bold text-primary">Deepak Chourasia</h1>
-  <p class="lead text-dark-emphasis">Engineer • Learner • <span class="text-success">Cloud</span> & <span class="text-danger">Cybersecurity</span> Enthusiast</p>
+  <p class="lead text-dark-emphasis"></p>
   <div class="d-flex justify-content-center flex-wrap gap-2 mt-3">
-    <a href="/about" class="btn btn-outline-primary">
+    <a href="{{ '/about' | relative_url }}" class="btn btn-outline-primary">
       <i class="fas fa-user me-1"></i> More About Me
     </a>
-    <a href="/assets/resume.pdf" class="btn btn-primary" download>
+    <a href="{{ '/assets/resume.pdf' | relative_url }}" class="btn btn-primary" download>
       <i class="fas fa-download me-1"></i> Download Resume
     </a>
   </div>

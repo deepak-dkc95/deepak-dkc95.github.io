@@ -4,7 +4,7 @@ title: Blog Posts
 description: Read my thoughts and tutorials on Cloud, Cybersecurity, and more.
 ---
 
-<div class="container my-5">
+<div class="container my-5 animate__animated animate__fadeIn">
 
   <!-- Popular Blog Slider -->
   <h2 class="mb-4 text-center fw-bold">🌟 Most Popular Blogs</h2>
@@ -14,9 +14,11 @@ description: Read my thoughts and tutorials on Cloud, Cybersecurity, and more.
       {% for post in popular_posts %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
           <div class="d-flex flex-column align-items-center p-4">
-            <h3 class="fw-bold text-primary">{{ post.title }}</h3>
+            <h3 class="fw-bold text-primary">
+              <a href="{{ post.url | relative_url }}" class="text-decoration-none text-primary">{{ post.title }}</a>
+            </h3>
             <p class="text-muted">
-              <small>📅 {{ post.date | date: "%B %d, %Y" }}</small>
+              <small><i class="far fa-calendar-alt"></i> {{ post.date | date: "%B %d, %Y" }}</small>
             </p>
             <p class="text-center">{{ post.excerpt | strip_html | truncate: 120 }}</p>
             <a href="{{ post.url | relative_url }}" class="btn btn-outline-primary mt-2">Read More</a>

@@ -2,15 +2,15 @@
 layout: default
 ---
 
-<article class="container my-5">
+<article class="container my-5 animate__animated animate__fadeIn">
   <header class="mb-4 text-center">
-    <h1 class="fw-bold">{{ page.title }}</h1>
+    <h1 class="fw-bold text-primary">{{ page.title }}</h1>
     <p class="text-muted">
-      <small>📅 {{ page.date | date: "%B %d, %Y" }}</small>
+      <small><i class="far fa-calendar-alt"></i> {{ page.date | date: "%B %d, %Y" }}</small>
     </p>
     {% if page.author %}
       <p class="text-muted">
-        <small>✍️ By {{ page.author }}</small>
+        <small><i class="fas fa-pen"></i> By {{ page.author }}</small>
       </p>
     {% endif %}
   </header>

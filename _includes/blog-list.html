@@ -1,18 +1,18 @@
-<section class="container my-5">
+<section class="container my-5 animate__animated animate__fadeInUp">
   <h2 class="text-center mb-4">Latest Blogs</h2>
 
   {% for post in site.posts limit:5 %}
-    <div class="blog-post mb-4">
-      <h3>
+    <div class="blog-post mb-4 p-3 shadow-sm rounded transition">
+      <h3 class="mb-2">
         <a href="{{ post.url | relative_url }}" class="text-decoration-none text-primary fw-bold">
           {{ post.title }}
         </a>
       </h3>
       <p class="text-muted mb-1">
-        <small>📅 {{ post.date | date: "%B %d, %Y" }}</small>
+        <small><i class="far fa-calendar-alt me-1"></i>{{ post.date | date: "%B %d, %Y" }}</small>
       </p>
-      <p>{{ post.description | truncatewords: 30 }}</p>
-      <a href="{{ post.url | relative_url }}" class="read-more text-decoration-none">Read more →</a>
+      <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      <a href="{{ post.url | relative_url }}" class="btn btn-sm btn-outline-primary">Read more →</a>
     </div>
   {% endfor %}
 </section>
