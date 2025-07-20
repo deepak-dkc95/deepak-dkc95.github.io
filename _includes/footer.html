@@ -1,12 +1,12 @@
-<footer>
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;">
-    <div style="flex:1;min-width:220px;">
-      <h5 style="color:var(--accent-dark);font-family:'Space Grotesk',sans-serif;font-weight:700;"> <i class="fas fa-code me-2"></i>Deepak Chourasia</h5>
-      <p style="color:var(--text-secondary);margin-top:1rem;">Cloud Engineer & DevOps Specialist passionate about building scalable infrastructure and securing digital assets.</p>
+<footer style="max-width:1200px;margin:5rem auto 0 auto;padding:3rem 3rem 2rem 3rem;background:var(--bg-footer);border-radius:24px 24px 0 0;box-shadow:0 8px 32px rgba(100,255,218,0.10);color:var(--text-secondary);">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:3rem;">
+    <div style="flex:1;min-width:260px;">
+      <h5 style="color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;"> <i class="fas fa-code me-2"></i>Deepak Chourasia</h5>
+      <p style="color:var(--text-secondary);margin-top:1.5rem;max-width:320px;">Cloud Engineer & DevOps Specialist passionate about building scalable infrastructure and securing digital assets.</p>
     </div>
     <div style="flex:1;min-width:180px;">
-      <h6 style="color:var(--accent-dark);font-family:'Space Grotesk',sans-serif;font-weight:700;">Quick Links</h6>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+      <h6 style="color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;">Quick Links</h6>
+      <div style="display:flex;flex-direction:column;gap:0.7rem;">
         <a href="{{ '/' | relative_url }}">Home</a>
         <a href="{{ '/blogs' | relative_url }}">Blogs</a>
         <a href="{{ '/about' | relative_url }}">About</a>
@@ -14,8 +14,8 @@
       </div>
     </div>
     <div style="flex:1;min-width:180px;">
-      <h6 style="color:var(--accent-dark);font-family:'Space Grotesk',sans-serif;font-weight:700;">Connect With Me</h6>
-      <div style="display:flex;gap:0.5rem;">
+      <h6 style="color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;">Connect With Me</h6>
+      <div style="display:flex;gap:0.7rem;">
         <a href="{{ site.social_links.linkedin }}" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
         <a href="{{ site.social_links.github }}" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
         <a href="{{ site.social_links.blog }}" target="_blank" class="social-link" aria-label="Blog"><i class="fas fa-blog fa-lg"></i></a>
@@ -23,10 +23,10 @@
       </div>
     </div>
   </div>
-  <hr style="margin:2rem 0;border-color:var(--border);">
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
-    <div style="color:var(--text-muted);font-size:0.95rem;">&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}. All rights reserved.</div>
-    <div style="color:var(--text-muted);font-size:0.95rem;">Made with <i class="fas fa-heart" style="color:#ff4d6d;"></i> and lots of <i class="fas fa-coffee" style="color:#ffd600;"></i></div>
+  <hr style="margin:2.5rem 0;border-color:var(--border);">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;">
+    <div style="color:var(--text-muted);font-size:1rem;">&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}. All rights reserved.</div>
+    <div style="color:var(--text-muted);font-size:1rem;">Made with <i class="fas fa-heart" style="color:#ff4d6d;"></i> and lots of <i class="fas fa-coffee" style="color:#ffd600;"></i></div>
   </div>
 </footer>
 
