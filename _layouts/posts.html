@@ -7,7 +7,7 @@ layout: default
     <h1 class="fw-bold text-primary">{{ page.title }}</h1>
     <div class="blog-meta">
       <small><i class="far fa-calendar-alt me-1"></i>{{ page.date | date: "%B %d, %Y" }}</small>
-      <small><i class="far fa-user me-1"></i>{{ page.author | default: site.author }}</small>
+      <small><i class="far fa-user me-1"></i>{{ page.author | default: site.author.name }}</small>
       {% if page.categories %}
       <small><i class="far fa-folder me-1"></i>{{ page.categories | join: ", " }}</small>
       {% endif %}
