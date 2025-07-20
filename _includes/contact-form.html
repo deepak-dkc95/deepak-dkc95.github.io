@@ -1,32 +1,114 @@
 <section class="container my-5 animate__animated animate__fadeInUp">
-  <h2 class="text-center mb-4">Get in Touch</h2>
+  <h2 class="text-center mb-4">
+    <i class="fas fa-envelope me-2"></i>Get in Touch
+  </h2>
+  <p class="text-center text-muted mb-4">Ready to collaborate? Let's discuss your next project!</p>
 
   <!-- Success Message -->
   <div id="success-alert" class="alert alert-success d-none text-center" role="alert">
-    ✅ Thank you! Your message has been sent.
+    <i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent successfully.
   </div>
 
-  <form id="contact-form" action="https://formspree.io/f/xeognbvb" method="POST" class="row g-3 needs-validation" novalidate>
-    <div class="col-md-6">
-      <label for="name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-      <div class="invalid-feedback">Please enter your name.</div>
-    </div>
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <form id="contact-form" action="https://formspree.io/f/xeognbvb" method="POST" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+          <label for="name" class="form-label">
+            <i class="fas fa-user me-1"></i>Name *
+          </label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+          <div class="invalid-feedback">Please enter your name.</div>
+        </div>
 
-    <div class="col-md-6">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="_replyto" placeholder="your.email@example.com" required>
-      <div class="invalid-feedback">Please enter a valid email.</div>
-    </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">
+            <i class="fas fa-envelope me-1"></i>Email *
+          </label>
+          <input type="email" class="form-control" id="email" name="_replyto" placeholder="your.email@example.com" required>
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
 
-    <div class="col-12">
-      <label for="message" class="form-label">Message</label>
-      <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
-      <div class="invalid-feedback">Please enter your message.</div>
-    </div>
+        <div class="col-md-6">
+          <label for="subject" class="form-label">
+            <i class="fas fa-tag me-1"></i>Subject
+          </label>
+          <select class="form-select" id="subject" name="subject">
+            <option value="">Select a topic</option>
+            <option value="Project Collaboration">Project Collaboration</option>
+            <option value="Job Opportunity">Job Opportunity</option>
+            <option value="Technical Consultation">Technical Consultation</option>
+            <option value="Blog Feedback">Blog Feedback</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
 
-    <div class="col-12 text-center">
-      <button type="submit" id="submit-btn" class="btn btn-primary px-5">Send Message</button>
+        <div class="col-md-6">
+          <label for="priority" class="form-label">
+            <i class="fas fa-exclamation-triangle me-1"></i>Priority
+          </label>
+          <select class="form-select" id="priority" name="priority">
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="message" class="form-label">
+            <i class="fas fa-comment me-1"></i>Message *
+          </label>
+          <textarea class="form-control" id="message" name="message" rows="6" 
+                    placeholder="Tell me about your project, questions, or how I can help you..." required></textarea>
+          <div class="invalid-feedback">Please enter your message.</div>
+          <div class="form-text">
+            <small class="text-muted">
+              <i class="fas fa-info-circle me-1"></i>
+              I typically respond within 24 hours during business days.
+            </small>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+            <label class="form-check-label" for="newsletter">
+              Subscribe to my newsletter for tech updates and insights
+            </label>
+          </div>
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit" id="submit-btn" class="btn btn-primary px-5 py-2">
+            <i class="fas fa-paper-plane me-2"></i>Send Message
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
+
+  <!-- Contact Info -->
+  <div class="row mt-5">
+    <div class="col-md-4 text-center">
+      <div class="p-3">
+        <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+        <h5>Email</h5>
+        <p class="text-muted">deepak@example.com</p>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="p-3">
+        <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
+        <h5>Location</h5>
+        <p class="text-muted">Remote / India</p>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="p-3">
+        <i class="fas fa-clock fa-2x text-primary mb-2"></i>
+        <h5>Response Time</h5>
+        <p class="text-muted">Within 24 hours</p>
+      </div>
+    </div>
+  </div>
 </section>

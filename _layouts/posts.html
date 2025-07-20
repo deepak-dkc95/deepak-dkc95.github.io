@@ -2,26 +2,62 @@
 layout: default
 ---
 
-<article class="container my-5 animate__animated animate__fadeIn">
-  <header class="mb-4 text-center">
+<article class="blog-post">
+  <header class="mb-4">
     <h1 class="fw-bold text-primary">{{ page.title }}</h1>
-    <p class="text-muted">
-      <small><i class="far fa-calendar-alt"></i> {{ page.date | date: "%B %d, %Y" }}</small>
-    </p>
-    {% if page.author %}
-      <p class="text-muted">
-        <small><i class="fas fa-pen"></i> By {{ page.author }}</small>
-      </p>
+    <div class="blog-meta">
+      <small><i class="far fa-calendar-alt me-1"></i>{{ page.date | date: "%B %d, %Y" }}</small>
+      <small><i class="far fa-user me-1"></i>{{ page.author | default: site.author }}</small>
+      {% if page.categories %}
+      <small><i class="far fa-folder me-1"></i>{{ page.categories | join: ", " }}</small>
+      {% endif %}
+    </div>
+    {% if page.tags %}
+    <div class="blog-tags">
+      {% for tag in page.tags %}
+      <span class="blog-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
     {% endif %}
   </header>
 
-  <div class="content">
+  <div class="blog-content">
     {{ content }}
   </div>
 
-  <hr class="my-5">
-
-  <div class="text-center">
-    <a href="{{ '/blogs' | relative_url }}" class="btn btn-outline-primary">← Back to Blogs</a>
-  </div>
+  <footer class="mt-5 pt-3 border-top">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <small class="text-muted">
+          <i class="far fa-clock me-1"></i>
+          <span id="reading-time">Calculating...</span> min read
+        </small>
+      </div>
+      <div>
+        <small class="text-muted">
+          <i class="far fa-eye me-1"></i>
+          <span id="view-count">0</span> views
+        </small>
+      </div>
+    </div>
+  </footer>
 </article>
+
+<script>
+  // Calculate reading time
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = document.querySelector('.blog-content');
+    if (content) {
+      const text = content.textContent;
+      const wordCount = text.split(/\s+/).length;
+      const readingTime = Math.ceil(wordCount / 200);
+      document.getElementById('reading-time').textContent = readingTime;
+    }
+    
+    // Update view count
+    const postTitle = '{{ page.title }}';
+    const postKey = `views_${postTitle.replace(/\s+/g, '_')}`;
+    const currentViews = parseInt(localStorage.getItem(postKey)) || 0;
+    document.getElementById('view-count').textContent = currentViews;
+  });
+</script>

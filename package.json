@@ -1,0 +1,35 @@
+{
+  "name": "deepak-portfolio",
+  "version": "1.0.0",
+  "description": "Deepak Chourasia's tech-savvy portfolio website built with Jekyll",
+  "main": "index.js",
+  "scripts": {
+    "dev": "bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "clean": "bundle exec jekyll clean",
+    "doctor": "bundle exec jekyll doctor"
+  },
+  "keywords": [
+    "jekyll",
+    "portfolio",
+    "tech",
+    "cloud",
+    "devops",
+    "cybersecurity",
+    "static-site"
+  ],
+  "author": "Deepak Chourasia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deepak-dkc95/deepak-dkc95.github.io.git"
+  },
+  "homepage": "https://deepak-dkc95.github.io",
+  "engines": {
+    "node": ">=18.0.0",
+    "ruby": ">=3.2.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+} 
