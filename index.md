@@ -5,14 +5,15 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
 ---
 
 <!-- Professional Hero Section -->
-<section class="hero-section">
-  <div class="container">
-    <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="hero-avatar">
-    <h1 class="hero-title">Deepak Chourasia</h1>
-    <p class="hero-subtitle">
-      Systems Engineer • DevOps Specialist • Writer<br>
-      <span class="text-gradient">Building scalable, secure, and efficient cloud solutions</span>
-    </p>
+<section class="hero-section animate__animated animate__fadeIn">
+  <div class="container text-center">
+    <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="hero-avatar mb-3">
+    <h1 class="hero-title mb-2">
+      <span class="text-gradient">Deepak Chourasia</span>
+    </h1>
+    <div class="animated-typing mb-3" style="font-size:1.3rem; color:var(--primary-700); font-family: 'JetBrains Mono', monospace;">
+      <span id="typed-text"></span><span class="blinking-cursor">|</span>
+    </div>
     <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
       <a href="{{ '/about' | relative_url }}" class="btn btn-primary">
         <i class="fas fa-user me-2"></i>About Me
@@ -26,6 +27,37 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const phrases = [
+    'Cloud Engineer',
+    'DevOps Specialist',
+    'Tech Writer',
+    'Building scalable, secure, and efficient cloud solutions',
+    'Open to collaboration & new opportunities'
+  ];
+  let i = 0, j = 0, isDeleting = false, current = '', speed = 80;
+  const el = document.getElementById('typed-text');
+  function type() {
+    if (!el) return;
+    if (!isDeleting && j <= phrases[i].length) {
+      current = phrases[i].substring(0, j++);
+      el.textContent = current;
+      setTimeout(type, speed);
+    } else if (isDeleting && j >= 0) {
+      current = phrases[i].substring(0, j--);
+      el.textContent = current;
+      setTimeout(type, speed / 2);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) i = (i + 1) % phrases.length;
+      setTimeout(type, 900);
+    }
+  }
+  type();
+});
+</script>
 
 <!-- Professional Expertise Section -->
 <section class="container my-5">
@@ -65,6 +97,36 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
       <div class="tech-item">
         <i class="fas fa-code-branch"></i>
         <h5>CI/CD</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Highlights Section -->
+<section class="container my-5">
+  <div class="professional-card text-center animate__animated animate__fadeInUp">
+    <h2 class="mb-4 text-gradient"><i class="fas fa-rocket me-2"></i>Project Highlights</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="project-card p-4 h-100">
+          <i class="fab fa-aws fa-2x mb-3 text-primary"></i>
+          <h5 class="fw-bold mb-2">Cloud Automation Suite</h5>
+          <p class="text-muted">Automated AWS infrastructure provisioning and monitoring using Terraform and custom scripts.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="project-card p-4 h-100">
+          <i class="fas fa-shield-alt fa-2x mb-3 text-primary"></i>
+          <h5 class="fw-bold mb-2">Security Audit Platform</h5>
+          <p class="text-muted">Developed a platform for automated security audits and compliance checks for cloud environments.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="project-card p-4 h-100">
+          <i class="fab fa-docker fa-2x mb-3 text-primary"></i>
+          <h5 class="fw-bold mb-2">Containerized CI/CD</h5>
+          <p class="text-muted">Built a scalable CI/CD pipeline using Docker, Kubernetes, and GitHub Actions for rapid deployments.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -113,7 +175,7 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
 {% assign latest_post = site.posts | first %}
 {% if latest_post %}
 <section class="container my-5">
-  <div class="professional-card">
+  <div class="professional-card animate__animated animate__fadeInUp">
     <h2 class="text-center mb-4">
       <i class="fas fa-newspaper me-2 text-gradient"></i>Latest Technical Article
     </h2>
@@ -143,7 +205,7 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
 
 <!-- Professional Contact Section -->
 <section class="container my-5">
-  <div class="professional-card text-center">
+  <div class="professional-card text-center animate__animated animate__fadeInUp">
     <h2 class="mb-4">
       <i class="fas fa-handshake me-2 text-gradient"></i>Let's Collaborate
     </h2>

@@ -20,32 +20,35 @@ class ProfessionalPortfolio {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     
     // Set initial theme
+    let theme = 'light';
     if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
+      theme = savedTheme;
     } else if (prefersDark.matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
+      theme = 'dark';
     }
+    document.documentElement.setAttribute('data-theme', theme);
+    this.updateThemeIcon(theme);
 
     if (themeToggle) {
-      themeToggle.addEventListener('click', this.toggleTheme.bind(this));
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        this.updateThemeIcon(newTheme);
+      });
     }
   }
 
-  toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Update icon with smooth transition
+  updateThemeIcon(theme) {
     const icon = document.querySelector('.theme-toggle i');
     if (icon) {
-      icon.style.transform = 'rotate(180deg)';
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      icon.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      icon.style.transform = 'scale(1.2) rotate(180deg)';
       setTimeout(() => {
-        icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        icon.style.transform = 'rotate(0deg)';
-      }, 150);
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      }, 250);
     }
   }
 
@@ -83,24 +86,9 @@ class ProfessionalPortfolio {
     });
   }
 
-  // Smooth skill bar animations
+  // Remove skill bar/percentage logic
   initSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const progressBar = entry.target;
-          const percentage = progressBar.getAttribute('data-percentage') || '80';
-          
-          setTimeout(() => {
-            progressBar.style.width = percentage + '%';
-          }, 200);
-        }
-      });
-    }, { threshold: 0.3 });
-    
-    skillBars.forEach(bar => observer.observe(bar));
+    // No-op: skill bars removed for modern design
   }
 
   // Professional contact form
