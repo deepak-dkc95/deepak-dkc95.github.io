@@ -57,7 +57,7 @@ jobs:
         run: |
           bundle install
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-          echo "site=${{ steps.pages.outputs.base_path }}/_site" >> $GITHUB_OUTPUT
+          echo "site=_site" >> $GITHUB_OUTPUT
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
