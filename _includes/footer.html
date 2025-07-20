@@ -63,28 +63,29 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
-  color: var(--text-color);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all var(--transition-normal);
 }
 
 .social-link:hover {
-  transform: translateY(-3px);
-  color: var(--neon-blue);
-  border-color: var(--neon-blue);
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+  color: var(--primary-600);
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.12);
 }
 
 footer a {
-  color: var(--text-color);
+  color: var(--text-secondary);
   transition: color var(--transition-normal);
 }
 
 footer a:hover {
-  color: var(--neon-blue);
+  color: var(--primary-600);
 }
 </style>
