@@ -1,9 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow animate__animated animate__fadeInDown">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold text-white" href="{{ '/' | relative_url }}">
-      Home
+<nav class="navbar navbar-expand-lg sticky-top animate__animated animate__fadeInDown">
+  <div class="container">
+    <a class="navbar-brand" href="{{ '/' | relative_url }}">
+      <i class="fas fa-code me-2"></i>Deepak Chourasia
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -12,19 +13,33 @@
         {% assign current_url = page.url | downcase %}
 
         <li class="nav-item">
-          <a class="nav-link {% if current_url == '/projects/' %}active{% endif %}" href="{{ '/projects' | relative_url }}">Projects</a>
+          <a class="nav-link {% if current_url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">
+            <i class="fas fa-home me-1"></i>Home
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if current_url == '/blogs/' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a>
+          <a class="nav-link {% if current_url == '/blogs/' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">
+            <i class="fas fa-blog me-1"></i>Blogs
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if current_url == '/about/' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a>
+          <a class="nav-link {% if current_url == '/about/' %}active{% endif %}" href="{{ '/about' | relative_url }}">
+            <i class="fas fa-user me-1"></i>About
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link {% if current_url == '/contact/' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a>
+          <a class="nav-link {% if current_url == '/contact/' %}active{% endif %}" href="{{ '/contact' | relative_url }}">
+            <i class="fas fa-envelope me-1"></i>Contact
+          </a>
+        </li>
+
+        <li class="nav-item ms-2">
+          <a class="btn btn-outline-primary btn-sm" href="{{ '/assets/resume.pdf' | relative_url }}" download>
+            <i class="fas fa-download me-1"></i>Resume
+          </a>
         </li>
       </ul>
     </div>

@@ -1,22 +1,90 @@
-<footer class="bg-dark text-white py-4 animate__animated animate__fadeInUp">
-  <div class="container text-center">
-    <p class="mb-2">Made with ❤️ by <strong>{{ site.author }}</strong></p>
-
-    <div class="mb-3">
-      <a href="{{ site.social_links.linkedin }}" target="_blank" class="text-white me-3">
-        <i class="fab fa-linkedin fa-lg"></i>
-      </a>
-      <a href="{{ site.social_links.github }}" target="_blank" class="text-white me-3">
-        <i class="fab fa-github fa-lg"></i>
-      </a>
-      <a href="{{ site.social_links.yourquote }}" target="_blank" class="text-white me-3">
-        <i class="fas fa-quote-right fa-lg"></i>
-      </a>
-      <a href="{{ site.social_links.blog }}" target="_blank" class="text-white">
-        <i class="fas fa-blog fa-lg"></i>
-      </a>
+<footer class="py-5 animate__animated animate__fadeInUp">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center text-md-start mb-4">
+        <h5 class="mb-3">
+          <i class="fas fa-code me-2"></i>Deepak Chourasia
+        </h5>
+        <p class="text-muted">
+          Cloud Engineer & DevOps Specialist passionate about building scalable infrastructure and securing digital assets.
+        </p>
+      </div>
+      
+      <div class="col-md-4 text-center mb-4">
+        <h6 class="mb-3">Quick Links</h6>
+        <div class="d-flex flex-column gap-2">
+          <a href="{{ '/' | relative_url }}" class="text-decoration-none">Home</a>
+          <a href="{{ '/blogs' | relative_url }}" class="text-decoration-none">Blogs</a>
+          <a href="{{ '/about' | relative_url }}" class="text-decoration-none">About</a>
+          <a href="{{ '/contact' | relative_url }}" class="text-decoration-none">Contact</a>
+        </div>
+      </div>
+      
+      <div class="col-md-4 text-center text-md-end mb-4">
+        <h6 class="mb-3">Connect With Me</h6>
+        <div class="d-flex justify-content-center justify-content-md-end gap-3">
+          <a href="{{ site.social_links.linkedin }}" target="_blank" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin fa-lg"></i>
+          </a>
+          <a href="{{ site.social_links.github }}" target="_blank" class="social-link" aria-label="GitHub">
+            <i class="fab fa-github fa-lg"></i>
+          </a>
+          <a href="{{ site.social_links.blog }}" target="_blank" class="social-link" aria-label="Blog">
+            <i class="fas fa-blog fa-lg"></i>
+          </a>
+          <a href="{{ site.social_links.yourquote }}" target="_blank" class="social-link" aria-label="YourQuote">
+            <i class="fas fa-quote-right fa-lg"></i>
+          </a>
+        </div>
+      </div>
     </div>
-
-    <small>&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</small>
+    
+    <hr class="my-4">
+    
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start">
+        <small class="text-muted">
+          &copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.
+        </small>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <small class="text-muted">
+          Made with <i class="fas fa-heart text-danger"></i> and lots of <i class="fas fa-coffee text-warning"></i>
+        </small>
+      </div>
+    </div>
   </div>
 </footer>
+
+<style>
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+footer a {
+  color: var(--text-color);
+  transition: color var(--transition-normal);
+}
+
+footer a:hover {
+  color: var(--neon-blue);
+}
+</style>

@@ -1,43 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Dark Mode Toggle
+  // Initialize all features
   initializeDarkMode();
-
-  // Smooth Scroll for internal links
-  document.querySelectorAll('a.nav-link, .btn').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      if (this.hash !== "") {
-        e.preventDefault();
-        document.querySelector(this.hash).scrollIntoView({
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // Enhanced Typewriter Effect
+  initializeParticleBackground();
+  initializeScrollAnimations();
   initializeTypewriter();
-
-  // Tech Stack Interactions
   initializeTechStack();
-
-  // Activity Graph
   initializeActivityGraph();
-
-  // Skills Progress Animation
   initializeSkillsProgress();
-
-  // Form Submission Handling
   initializeContactForm();
-
-  // Blog Interactions
   initializeBlogFeatures();
-
-  // Terminal Effect
   initializeTerminal();
-
-  // Loading Animations
   initializeLoadingAnimations();
+  initializeParallaxEffects();
+  initializeMouseTrail();
 
 });
 
@@ -62,29 +38,135 @@ function initializeDarkMode() {
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       
-      // Update toggle icon
+      // Update toggle icon with animation
       const icon = themeToggle.querySelector('i');
-      icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      icon.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        icon.style.transform = 'rotate(0deg)';
+      }, 300);
     });
   }
 }
 
+// Particle Background
+function initializeParticleBackground() {
+  const particleBg = document.querySelector('.particle-background');
+  if (!particleBg) return;
+
+  // Create floating particles
+  for (let i = 0; i < 50; i++) {
+    createParticle(particleBg);
+  }
+}
+
+function createParticle(container) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  particle.style.cssText = `
+    position: absolute;
+    width: ${Math.random() * 4 + 2}px;
+    height: ${Math.random() * 4 + 2}px;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border-radius: 50%;
+    opacity: ${Math.random() * 0.5 + 0.1};
+    left: ${Math.random() * 100}%;
+    top: ${Math.random() * 100}%;
+    animation: float ${Math.random() * 10 + 10}s linear infinite;
+    pointer-events: none;
+  `;
+  
+  container.appendChild(particle);
+}
+
+// Add floating animation to CSS
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+    100% { transform: translateY(0px) rotate(360deg); }
+  }
+`;
+document.head.appendChild(style);
+
+// Scroll Animations
+function initializeScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in-up', 'visible');
+        
+        // Add staggered animation for tech items
+        if (entry.target.classList.contains('tech-stack')) {
+          const techItems = entry.target.querySelectorAll('.tech-item');
+          techItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.style.opacity = '0';
+              item.style.transform = 'translateY(30px)';
+              item.style.transition = 'all 0.6s ease';
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, 100);
+            }, index * 100);
+          });
+        }
+      }
+    });
+  }, observerOptions);
+  
+  // Observe elements for animation
+  const animateElements = document.querySelectorAll('.glass-card, .skill-section, .activity-graph, .blog-post, .tech-stack');
+  animateElements.forEach(el => {
+    observer.observe(el);
+  });
+}
+
 // Enhanced Typewriter Effect
 function initializeTypewriter() {
-  const typewriterText = document.querySelector('.lead');
+  const typewriterText = document.querySelector('.hero-subtitle');
   if (typewriterText) {
-    const text = 'Engineer • Learner • Cloud & Cybersecurity Enthusiast';
-    typewriterText.innerHTML = '';
-    typewriterText.classList.add('typewriter');
+    const texts = [
+      'Cloud Engineer • DevOps Specialist • Cybersecurity Enthusiast',
+      'Building Scalable Infrastructure • Securing Digital Assets',
+      'Passionate About Technology • Always Learning'
+    ];
     
-    let idx = 0;
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
     function typeWriter() {
-      if (idx < text.length) {
-        typewriterText.innerHTML += text.charAt(idx);
-        idx++;
-        setTimeout(typeWriter, 75);
+      const currentText = texts[textIndex];
+      
+      if (isDeleting) {
+        typewriterText.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterText.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
       }
+      
+      let typeSpeed = isDeleting ? 50 : 100;
+      
+      if (!isDeleting && charIndex === currentText.length) {
+        typeSpeed = 2000; // Pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        typeSpeed = 500; // Pause before next word
+      }
+      
+      setTimeout(typeWriter, typeSpeed);
     }
+    
     typeWriter();
   }
 }
@@ -96,42 +178,84 @@ function initializeTechStack() {
   techItems.forEach(item => {
     item.addEventListener('click', () => {
       // Add click animation
-      item.style.transform = 'scale(0.95)';
+      item.style.transform = 'scale(0.95) rotate(5deg)';
       setTimeout(() => {
         item.style.transform = '';
-      }, 150);
+      }, 200);
       
-      // Show tooltip or modal with tech details
+      // Show tech details modal
       const techName = item.querySelector('h5').textContent;
-      showTechDetails(techName);
+      showTechModal(techName);
+    });
+    
+    // Add hover sound effect (optional)
+    item.addEventListener('mouseenter', () => {
+      item.style.transform = 'translateY(-10px) scale(1.05)';
+    });
+    
+    item.addEventListener('mouseleave', () => {
+      item.style.transform = '';
     });
   });
 }
 
-function showTechDetails(techName) {
-  // Create a simple tooltip or modal
-  const tooltip = document.createElement('div');
-  tooltip.className = 'position-fixed bg-dark text-white p-2 rounded';
-  tooltip.style.cssText = `
-    top: ${event.pageY - 40}px;
-    left: ${event.pageX + 10}px;
-    z-index: 1000;
-    font-size: 0.8rem;
+function showTechModal(techName) {
+  // Create modal
+  const modal = document.createElement('div');
+  modal.className = 'tech-modal';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   `;
-  tooltip.textContent = `Click to learn more about ${techName}`;
   
-  document.body.appendChild(tooltip);
+  const modalContent = document.createElement('div');
+  modalContent.className = 'glass-card p-4';
+  modalContent.style.cssText = `
+    max-width: 400px;
+    text-align: center;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  `;
   
+  modalContent.innerHTML = `
+    <h3>${techName}</h3>
+    <p class="text-muted">Click to learn more about ${techName}</p>
+    <button class="btn btn-primary mt-3" onclick="this.parentElement.parentElement.remove()">Close</button>
+  `;
+  
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+  
+  // Animate in
   setTimeout(() => {
-    tooltip.remove();
-  }, 2000);
+    modal.style.opacity = '1';
+    modalContent.style.transform = 'scale(1)';
+  }, 10);
+  
+  // Close on background click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.remove();
+    }
+  });
 }
 
 // Activity Graph Generation
 function initializeActivityGraph() {
   const activityGrid = document.querySelector('.activity-grid');
   if (activityGrid) {
-    // Generate random activity data (replace with real data)
+    // Generate more realistic activity data
     const weeks = 52;
     const days = 7;
     
@@ -140,27 +264,65 @@ function initializeActivityGraph() {
         const cell = document.createElement('div');
         cell.className = 'activity-cell';
         
-        // Random activity level (0-5)
-        const level = Math.floor(Math.random() * 6);
+        // More realistic activity pattern
+        let level = 0;
+        const random = Math.random();
+        
+        if (random > 0.8) level = 5;
+        else if (random > 0.6) level = 4;
+        else if (random > 0.4) level = 3;
+        else if (random > 0.2) level = 2;
+        else if (random > 0.1) level = 1;
+        
         if (level > 0) {
           cell.setAttribute('data-level', level);
         }
         
-        // Add hover effect
-        cell.addEventListener('mouseenter', () => {
-          cell.style.transform = 'scale(1.5)';
+        // Add hover effect with tooltip
+        cell.addEventListener('mouseenter', (e) => {
+          cell.style.transform = 'scale(2)';
           cell.style.zIndex = '10';
+          
+          // Show tooltip
+          const tooltip = document.createElement('div');
+          tooltip.className = 'activity-tooltip';
+          tooltip.textContent = `${level} contributions on ${getDateFromGrid(week, day)}`;
+          tooltip.style.cssText = `
+            position: absolute;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1000;
+            top: ${e.pageY - 40}px;
+            left: ${e.pageX + 10}px;
+          `;
+          document.body.appendChild(tooltip);
+          
+          cell.tooltip = tooltip;
         });
         
         cell.addEventListener('mouseleave', () => {
           cell.style.transform = 'scale(1)';
           cell.style.zIndex = '1';
+          if (cell.tooltip) {
+            cell.tooltip.remove();
+          }
         });
         
         activityGrid.appendChild(cell);
       }
     }
   }
+}
+
+function getDateFromGrid(week, day) {
+  const date = new Date();
+  date.setDate(date.getDate() - (52 - week) * 7 - (7 - day));
+  return date.toLocaleDateString();
 }
 
 // Skills Progress Animation
@@ -172,7 +334,17 @@ function initializeSkillsProgress() {
       if (entry.isIntersecting) {
         const progressBar = entry.target;
         const percentage = progressBar.getAttribute('data-percentage') || '80';
-        progressBar.style.width = percentage + '%';
+        
+        // Animate progress bar
+        progressBar.style.width = '0%';
+        setTimeout(() => {
+          progressBar.style.width = percentage + '%';
+        }, 200);
+        
+        // Add completion animation
+        setTimeout(() => {
+          progressBar.style.boxShadow = '0 0 30px var(--neon-blue)';
+        }, 2000);
       }
     });
   }, { threshold: 0.5 });
@@ -189,28 +361,42 @@ function initializeContactForm() {
   const successAlert = document.getElementById('success-alert');
 
   if (form) {
-    // Real-time validation
-    const inputs = form.querySelectorAll('input, textarea');
+    // Real-time validation with visual feedback
+    const inputs = form.querySelectorAll('input, textarea, select');
     inputs.forEach(input => {
       input.addEventListener('blur', validateField);
       input.addEventListener('input', clearValidation);
+      
+      // Add floating label effect
+      if (input.type !== 'checkbox') {
+        input.addEventListener('focus', () => {
+          input.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', () => {
+          if (!input.value) {
+            input.parentElement.classList.remove('focused');
+          }
+        });
+      }
     });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       
       if (validateForm()) {
-        // Show loading state
+        // Show loading state with animation
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.innerHTML = '<div class="loading-spinner me-2"></div>Sending...';
         
         // Simulate form submission
         setTimeout(() => {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
           
           if (successAlert) {
             successAlert.classList.remove('d-none');
+            successAlert.style.animation = 'slideInUp 0.5s ease';
             form.reset();
           }
         }, 2000);
@@ -328,7 +514,8 @@ function initializeTerminal() {
       { prompt: 'deepak@portfolio:~$', command: 'whoami', output: 'Deepak Chourasia' },
       { prompt: 'deepak@portfolio:~$', command: 'cat skills.txt', output: 'Cloud Computing, DevOps, Cybersecurity, Web Development' },
       { prompt: 'deepak@portfolio:~$', command: 'ls projects/', output: 'aws-deployment, docker-container, kubernetes-cluster' },
-      { prompt: 'deepak@portfolio:~$', command: 'echo "Ready to collaborate!"', output: 'Ready to collaborate!' }
+      { prompt: 'deepak@portfolio:~$', command: 'echo "Ready to collaborate!"', output: 'Ready to collaborate!' },
+      { prompt: 'deepak@portfolio:~$', command: 'git status', output: 'On branch main\nYour branch is up to date with origin/main.' }
     ];
     
     let commandIndex = 0;
@@ -382,6 +569,58 @@ function initializeLoadingAnimations() {
   const animateElements = document.querySelectorAll('.blog-post, .tech-item, .skill-bar');
   animateElements.forEach(el => {
     observer.observe(el);
+  });
+}
+
+// Parallax Effects
+function initializeParallaxEffects() {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.particle-background');
+    
+    parallaxElements.forEach(element => {
+      const speed = 0.5;
+      element.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  });
+}
+
+// Mouse Trail Effect
+function initializeMouseTrail() {
+  let mouseTrail = [];
+  const maxTrailLength = 20;
+  
+  document.addEventListener('mousemove', (e) => {
+    const dot = document.createElement('div');
+    dot.className = 'mouse-trail';
+    dot.style.cssText = `
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: var(--neon-blue);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      left: ${e.clientX}px;
+      top: ${e.clientY}px;
+      opacity: 0.8;
+      transition: all 0.1s ease;
+    `;
+    
+    document.body.appendChild(dot);
+    mouseTrail.push(dot);
+    
+    if (mouseTrail.length > maxTrailLength) {
+      const oldDot = mouseTrail.shift();
+      oldDot.remove();
+    }
+    
+    // Fade out trail
+    mouseTrail.forEach((trailDot, index) => {
+      const opacity = (index / mouseTrail.length) * 0.8;
+      trailDot.style.opacity = opacity;
+      trailDot.style.transform = `scale(${opacity})`;
+    });
   });
 }
 
