@@ -1,72 +1,56 @@
 title: "Deepak Chourasia"
-description: "Engineer. Creator. Curious Mind."
-author: "Deepak Chourasia"
-baseurl: "" # Leave blank for GitHub Pages
+tagline: "Systems Engineer • IIT(ISM)'18 • Fiction Writer"
+description: "Experienced systems engineer specializing in scalable infrastructure, DevOps automation, and cybersecurity."
+author: 
+  name: "Deepak Chourasia"
+  title: "Systems Engineer"
+  location: "India"
+  email: "deepakdkc95@gmail.com"
+
+baseurl: ""
 url: "https://deepak-dkc95.github.io"
 
-theme: minima
-markdown: kramdown
-highlighter: rouge
+# Professional theme settings
+theme_config:
+  primary_color: "#2563eb"      # Professional blue
+  secondary_color: "#64748b"    # Slate gray
+  accent_color: "#0ea5e9"       # Sky blue
+  dark_mode_default: false
 
-permalink: /:categories/:year/:month/:day/:title/
+# Enhanced SEO
+seo:
+  type: "Person"
+  name: "Deepak Chourasia"
+  job_title: "Systems Engineer"
+  company: "D.E. Shaw"
+  
+# Professional links only
+social_links:
+  linkedin: "https://www.linkedin.com/in/deepak-chourasia-3bb283256"
+  github: "https://github.com/deepak-dkc95"
+  email: "mailto:deepakdkc95@gmail.com"
+  blog: "https://deepakdc94.blogspot.com/"
 
+# Performance optimizations
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-compress-images
 
-# SEO settings
-seo:
-  name: "Deepak Chourasia"
-  type: "Person"
-  twitter:
-    username: deepakdkc95
-    card: summary_large_image
+# Build optimizations
+sass:
+  sass_dir: assets/css
+  style: compressed
 
-# Social links
-social_links:
-  linkedin: "https://www.linkedin.com/in/deepak-chourasia-3bb283256"
-  github: "https://github.com/deepak-dkc95"
-  blog: "https://deepakdc94.blogspot.com/"
-  yourquote: "https://yourquote.in/deepakdc94"
-
-# Collections
-collections:
-  projects:
-    output: true
-
-# Pagination
-paginate: 5
-paginate_path: "/blogs/page:num/"
-
-# Exclude files
-exclude:
-  - README.md
-  - node_modules
-  - Gemfile
-  - Gemfile.lock
-
-# Default settings
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: posts
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: default
-
-# Markdown options
 kramdown:
   input: GFM
-  hard_wrap: false
-  auto_ids: true
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
 
-# Future-proofing
-future: true
-lsi: false
-incremental: false
+paginate: 6
+paginate_path: "/blog/page:num/"
