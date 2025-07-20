@@ -588,7 +588,7 @@ function initializeParallaxEffects() {
 // Mouse Trail Effect
 function initializeMouseTrail() {
   let mouseTrail = [];
-  const maxTrailLength = 20;
+  const maxTrailLength = 10; // Reduced for better performance
   
   document.addEventListener('mousemove', (e) => {
     const dot = document.createElement('div');
@@ -612,15 +612,26 @@ function initializeMouseTrail() {
     
     if (mouseTrail.length > maxTrailLength) {
       const oldDot = mouseTrail.shift();
-      oldDot.remove();
+      if (oldDot && oldDot.parentNode) {
+        oldDot.remove();
+      }
     }
     
     // Fade out trail
     mouseTrail.forEach((trailDot, index) => {
-      const opacity = (index / mouseTrail.length) * 0.8;
-      trailDot.style.opacity = opacity;
-      trailDot.style.transform = `scale(${opacity})`;
+      if (trailDot && trailDot.parentNode) {
+        const opacity = (index / mouseTrail.length) * 0.8;
+        trailDot.style.opacity = opacity;
+        trailDot.style.transform = `scale(${opacity})`;
+      }
     });
+    
+    // Clean up trail dots after animation
+    setTimeout(() => {
+      if (dot && dot.parentNode) {
+        dot.remove();
+      }
+    }, 1000);
   });
 }
 
