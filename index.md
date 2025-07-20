@@ -12,7 +12,7 @@ description: Engineer • Learner • Cloud & Cybersecurity Enthusiast
   <div class="container">
     <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="hero-avatar">
     <h1 class="hero-title">Deepak Chourasia</h1>
-    <p class="hero-subtitle">Cloud Engineer • DevOps Specialist • Cybersecurity Enthusiast</p>
+    <p class="hero-subtitle">Cloud Engineer • DevOps Specialist • Cybersecurity Enthusiast<br><span style="font-size:1.1rem;font-weight:400;color:var(--neon-blue);">Building scalable, secure, and modern cloud solutions.</span></p>
     <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
       <a href="{{ '/about' | relative_url }}" class="btn btn-primary">
         <i class="fas fa-user me-2"></i>About Me
@@ -23,20 +23,6 @@ description: Engineer • Learner • Cloud & Cybersecurity Enthusiast
       <a href="{{ '/blogs' | relative_url }}" class="btn btn-outline-primary">
         <i class="fas fa-blog me-2"></i>Read Blog
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- Terminal Demo Section -->
-<section class="container my-5">
-  <div class="glass-card p-4">
-    <h2 class="text-center mb-4">
-      <i class="fas fa-terminal me-2"></i>Live Terminal Demo
-    </h2>
-    <div class="terminal">
-      <div class="terminal-content">
-        <!-- Terminal content will be populated by JavaScript -->
-      </div>
     </div>
   </div>
 </section>
