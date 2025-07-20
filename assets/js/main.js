@@ -343,7 +343,7 @@ function initializeSkillsProgress() {
         
         // Add completion animation
         setTimeout(() => {
-          progressBar.style.boxShadow = '0 0 30px var(--neon-blue)';
+          progressBar.style.boxShadow = '0 0 12px rgba(0, 212, 255, 0.5)';
         }, 2000);
       }
     });
