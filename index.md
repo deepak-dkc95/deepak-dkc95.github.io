@@ -125,30 +125,6 @@ description: Engineer • Learner • Cloud & Cybersecurity Enthusiast
   </div>
 </section>
 
-<!-- Activity Graph Section -->
-<section class="container my-5">
-  <div class="activity-graph">
-    <h2 class="text-center mb-4">
-      <i class="fas fa-calendar-alt me-2"></i>Coding Activity
-    </h2>
-    <p class="text-center text-muted mb-4">My development activity over the past year (GitHub-style)</p>
-    <div class="activity-grid">
-      <!-- Activity cells will be populated by JavaScript -->
-    </div>
-    <div class="text-center mt-4">
-      <small class="text-muted">
-        <span class="me-3">Less</span>
-        <span class="activity-cell me-1" data-level="1"></span>
-        <span class="activity-cell me-1" data-level="2"></span>
-        <span class="activity-cell me-1" data-level="3"></span>
-        <span class="activity-cell me-1" data-level="4"></span>
-        <span class="activity-cell me-3" data-level="5"></span>
-        <span>More</span>
-      </small>
-    </div>
-  </div>
-</section>
-
 <!-- Latest Blog Post -->
 {% assign latest_post = site.posts | first %}
 {% if latest_post %}
