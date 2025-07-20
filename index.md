@@ -4,30 +4,17 @@ title: Deepak Chourasia - Systems Engineer & Writer
 description: Experienced systems engineer specializing in AWS, DevOps automation, and cybersecurity. Building scalable infrastructure solutions.
 ---
 
-<!-- Professional Hero Section -->
-<section class="hero-section animate__animated animate__fadeIn">
-  <div class="container text-center">
-    <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="hero-avatar mb-3">
-    <h1 class="hero-title mb-2">
-      <span class="text-gradient">Deepak Chourasia</span>
-    </h1>
-    <div class="animated-typing mb-3" style="font-size:1.3rem; color:var(--primary-700); font-family: 'JetBrains Mono', monospace;">
-      <span id="typed-text"></span><span class="blinking-cursor">|</span>
-    </div>
-    <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
-      <a href="{{ '/about' | relative_url }}" class="btn btn-primary">
-        <i class="fas fa-user me-2"></i>About Me
-      </a>
-      <a href="{{ '/assets/resume.pdf' | relative_url }}" class="btn btn-outline-primary" download>
-        <i class="fas fa-download me-2"></i>Resume
-      </a>
-      <a href="{{ '/blogs' | relative_url }}" class="btn btn-outline-primary">
-        <i class="fas fa-blog me-2"></i>Technical Blog
-      </a>
-    </div>
+<!-- Hero Section -->
+<section class="hero-section">
+  <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="hero-avatar">
+  <h1 class="hero-title">Deepak Chourasia</h1>
+  <div class="animated-typing"><span id="typed-text"></span><span class="blinking-cursor">|</span></div>
+  <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+    <a href="{{ '/about' | relative_url }}" class="btn btn-primary">About Me</a>
+    <a href="{{ '/assets/resume.pdf' | relative_url }}" class="btn btn-outline-primary" download>Resume</a>
+    <a href="{{ '/blogs' | relative_url }}" class="btn btn-outline-primary">Technical Blog</a>
   </div>
 </section>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const phrases = [
@@ -103,31 +90,23 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Project Highlights Section -->
-<section class="container my-5">
-  <div class="professional-card text-center animate__animated animate__fadeInUp">
-    <h2 class="mb-4 text-gradient"><i class="fas fa-rocket me-2"></i>Project Highlights</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="project-card p-4 h-100">
-          <i class="fab fa-aws fa-2x mb-3 text-primary"></i>
-          <h5 class="fw-bold mb-2">Cloud Automation Suite</h5>
-          <p class="text-muted">Automated AWS infrastructure provisioning and monitoring using Terraform and custom scripts.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="project-card p-4 h-100">
-          <i class="fas fa-shield-alt fa-2x mb-3 text-primary"></i>
-          <h5 class="fw-bold mb-2">Security Audit Platform</h5>
-          <p class="text-muted">Developed a platform for automated security audits and compliance checks for cloud environments.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="project-card p-4 h-100">
-          <i class="fab fa-docker fa-2x mb-3 text-primary"></i>
-          <h5 class="fw-bold mb-2">Containerized CI/CD</h5>
-          <p class="text-muted">Built a scalable CI/CD pipeline using Docker, Kubernetes, and GitHub Actions for rapid deployments.</p>
-        </div>
-      </div>
+<section class="professional-card">
+  <h2 style="color:var(--accent-dark);font-family:'Space Grotesk',sans-serif;font-weight:700;">Project Highlights</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+    <div class="project-card">
+      <i class="fab fa-aws fa-2x mb-3" style="color:var(--accent-dark);"></i>
+      <h5 style="font-weight:700;">Cloud Automation Suite</h5>
+      <p>Automated AWS infrastructure provisioning and monitoring using Terraform and custom scripts.</p>
+    </div>
+    <div class="project-card">
+      <i class="fas fa-shield-alt fa-2x mb-3" style="color:var(--accent-dark);"></i>
+      <h5 style="font-weight:700;">Security Audit Platform</h5>
+      <p>Developed a platform for automated security audits and compliance checks for cloud environments.</p>
+    </div>
+    <div class="project-card">
+      <i class="fab fa-docker fa-2x mb-3" style="color:var(--accent-dark);"></i>
+      <h5 style="font-weight:700;">Containerized CI/CD</h5>
+      <p>Built a scalable CI/CD pipeline using Docker, Kubernetes, and GitHub Actions for rapid deployments.</p>
     </div>
   </div>
 </section>
