@@ -1,38 +1,38 @@
 <section class="container my-5 animate__animated animate__fadeInUp">
   <h2 class="text-center mb-4">
-    <i class="fas fa-envelope me-2"></i>Get in Touch
+    <i class="fas fa-envelope me-2" aria-hidden="true"></i>Get in Touch
   </h2>
   <p class="text-center text-muted mb-4">Ready to collaborate? Let's discuss your next project!</p>
 
   <!-- Success Message -->
-  <div id="success-alert" class="alert alert-success d-none text-center" role="alert">
-    <i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent successfully.
+  <div id="success-alert" class="alert alert-success d-none text-center" role="alert" aria-live="polite">
+    <i class="fas fa-check-circle me-2" aria-hidden="true"></i>Thank you! Your message has been sent successfully.
   </div>
 
   <div class="row">
     <div class="col-lg-8 mx-auto">
-      <form id="contact-form" action="https://formspree.io/f/xeognbvb" method="POST" class="row g-3 needs-validation" novalidate>
+      <form id="contact-form" action="https://formspree.io/f/xeognbvb" method="POST" class="row g-3 needs-validation" novalidate autocomplete="on">
         <div class="col-md-6">
           <label for="name" class="form-label">
-            <i class="fas fa-user me-1"></i>Name *
+            <i class="fas fa-user me-1" aria-hidden="true"></i><span class="visually-hidden">Name</span> Name *
           </label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required aria-required="true" aria-invalid="false">
           <div class="invalid-feedback">Please enter your name.</div>
         </div>
 
         <div class="col-md-6">
           <label for="email" class="form-label">
-            <i class="fas fa-envelope me-1"></i>Email *
+            <i class="fas fa-envelope me-1" aria-hidden="true"></i><span class="visually-hidden">Email</span> Email *
           </label>
-          <input type="email" class="form-control" id="email" name="_replyto" placeholder="your.email@example.com" required>
+          <input type="email" class="form-control" id="email" name="_replyto" placeholder="your.email@example.com" required aria-required="true" aria-invalid="false">
           <div class="invalid-feedback">Please enter a valid email address.</div>
         </div>
 
         <div class="col-md-6">
           <label for="subject" class="form-label">
-            <i class="fas fa-tag me-1"></i>Subject
+            <i class="fas fa-tag me-1" aria-hidden="true"></i><span class="visually-hidden">Subject</span> Subject
           </label>
-          <select class="form-select" id="subject" name="subject">
+          <select class="form-select" id="subject" name="subject" aria-label="Subject">
             <option value="">Select a topic</option>
             <option value="Project Collaboration">Project Collaboration</option>
             <option value="Job Opportunity">Job Opportunity</option>
@@ -44,9 +44,9 @@
 
         <div class="col-md-6">
           <label for="priority" class="form-label">
-            <i class="fas fa-exclamation-triangle me-1"></i>Priority
+            <i class="fas fa-exclamation-triangle me-1" aria-hidden="true"></i><span class="visually-hidden">Priority</span> Priority
           </label>
-          <select class="form-select" id="priority" name="priority">
+          <select class="form-select" id="priority" name="priority" aria-label="Priority">
             <option value="Low">Low</option>
             <option value="Medium" selected>Medium</option>
             <option value="High">High</option>
@@ -56,14 +56,14 @@
 
         <div class="col-12">
           <label for="message" class="form-label">
-            <i class="fas fa-comment me-1"></i>Message *
+            <i class="fas fa-comment me-1" aria-hidden="true"></i><span class="visually-hidden">Message</span> Message *
           </label>
           <textarea class="form-control" id="message" name="message" rows="6" 
-                    placeholder="Tell me about your project, questions, or how I can help you..." required></textarea>
+                    placeholder="Tell me about your project, questions, or how I can help you..." required aria-required="true" aria-invalid="false"></textarea>
           <div class="invalid-feedback">Please enter your message.</div>
           <div class="form-text">
             <small class="text-muted">
-              <i class="fas fa-info-circle me-1"></i>
+              <i class="fas fa-info-circle me-1" aria-hidden="true"></i>
               I typically respond within 24 hours during business days.
             </small>
           </div>
@@ -80,7 +80,7 @@
 
         <div class="col-12 text-center">
           <button type="submit" id="submit-btn" class="btn btn-primary px-5 py-2">
-            <i class="fas fa-paper-plane me-2"></i>Send Message
+            <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Send Message
           </button>
         </div>
       </form>
@@ -91,24 +91,63 @@
   <div class="row mt-5">
     <div class="col-md-4 text-center">
       <div class="p-3">
-        <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+        <i class="fas fa-envelope fa-2x text-primary mb-2" aria-hidden="true"></i>
         <h5>Email</h5>
         <p class="text-muted">deepak@example.com</p>
       </div>
     </div>
     <div class="col-md-4 text-center">
       <div class="p-3">
-        <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
+        <i class="fas fa-map-marker-alt fa-2x text-primary mb-2" aria-hidden="true"></i>
         <h5>Location</h5>
         <p class="text-muted">Remote / India</p>
       </div>
     </div>
     <div class="col-md-4 text-center">
       <div class="p-3">
-        <i class="fas fa-clock fa-2x text-primary mb-2"></i>
+        <i class="fas fa-clock fa-2x text-primary mb-2" aria-hidden="true"></i>
         <h5>Response Time</h5>
         <p class="text-muted">Within 24 hours</p>
       </div>
     </div>
   </div>
+  <style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+  </style>
+  <script>
+  // Auto-hide success message after 5 seconds
+  document.addEventListener('DOMContentLoaded', function() {
+    var success = document.getElementById('success-alert');
+    if (success) {
+      var observer = new MutationObserver(function() {
+        if (!success.classList.contains('d-none')) {
+          setTimeout(function() { success.classList.add('d-none'); }, 5000);
+        }
+      });
+      observer.observe(success, { attributes: true, attributeFilter: ['class'] });
+    }
+    // ARIA invalid feedback
+    var form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', function() {
+        form.querySelectorAll('[required]').forEach(function(field) {
+          if (!field.value.trim()) {
+            field.setAttribute('aria-invalid', 'true');
+          } else {
+            field.setAttribute('aria-invalid', 'false');
+          }
+        });
+      });
+    }
+  });
+  </script>
 </section>

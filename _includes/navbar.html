@@ -1,13 +1,60 @@
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
   <div class="navbar-brand">
-    <i class="fas fa-code me-2"></i>Deepak Chourasia
+    <i class="fas fa-code me-2" aria-hidden="true"></i>Deepak Chourasia
   </div>
-  <ul class="navbar-nav">
+  <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-menu">
+    <span class="fas fa-bars"></span>
+  </button>
+  <ul class="navbar-nav" id="navbar-menu">
     {% assign current_url = page.url | downcase %}
-    <li><a class="nav-link {% if current_url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
-    <li><a class="nav-link {% if current_url == '/blogs/' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a></li>
-    <li><a class="nav-link {% if current_url == '/about/' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a></li>
-    <li><a class="nav-link {% if current_url == '/contact/' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
+    <li><a class="nav-link {% if current_url == '/' or current_url == '/index.html' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
+    <li><a class="nav-link {% if current_url contains '/blogs' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a></li>
+    <li><a class="nav-link {% if current_url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a></li>
+    <li><a class="nav-link {% if current_url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
     <li><a class="btn btn-outline-primary" href="{{ '/assets/resume.pdf' | relative_url }}" download>Resume</a></li>
   </ul>
 </nav>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.navbar-toggle');
+  const menu = document.getElementById('navbar-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('open');
+    });
+  }
+});
+</script>
+<style>
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--accent);
+  cursor: pointer;
+  margin-left: 1rem;
+}
+@media (max-width: 900px) {
+  .navbar-toggle { display: block; }
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: var(--bg-card);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1rem;
+  }
+  .navbar-nav.open {
+    display: flex;
+  }
+}
+</style>
