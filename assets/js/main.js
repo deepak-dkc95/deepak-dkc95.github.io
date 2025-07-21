@@ -22,8 +22,8 @@ class ProfessionalPortfolio {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
       
-      console.log('Theme toggle found:', !!themeToggle);
-      console.log('Theme toggle HTML:', themeToggle ? themeToggle.outerHTML : 'Not found');
+      // console.log('Theme toggle found:', !!themeToggle);
+      // console.log('Theme toggle HTML:', themeToggle ? themeToggle.outerHTML : 'Not found');
       
       // Set initial theme
       let theme = 'light';
@@ -33,18 +33,18 @@ class ProfessionalPortfolio {
         theme = 'dark';
       }
       
-      console.log('Setting initial theme:', theme);
+      // console.log('Setting initial theme:', theme);
       document.documentElement.setAttribute('data-theme', theme);
       this.updateThemeIcon(theme);
 
       if (themeToggle) {
         themeToggle.addEventListener('click', (e) => {
-          console.log('Theme toggle clicked!');
+          // console.log('Theme toggle clicked!');
           e.preventDefault();
           e.stopPropagation();
           const currentTheme = document.documentElement.getAttribute('data-theme');
           const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          console.log('Switching from', currentTheme, 'to', newTheme);
+          // console.log('Switching from', currentTheme, 'to', newTheme);
           document.documentElement.setAttribute('data-theme', newTheme);
           localStorage.setItem('theme', newTheme);
           this.updateThemeIcon(newTheme);
@@ -63,8 +63,8 @@ class ProfessionalPortfolio {
       return;
     }
     
-    console.log('=== Font Awesome Theme Toggle ===');
-    console.log('Theme:', theme);
+         // console.log('=== Font Awesome Theme Toggle ===');
+     // console.log('Theme:', theme);
     
     // Clear the button and create fresh icon
     button.innerHTML = '';
@@ -77,20 +77,20 @@ class ProfessionalPortfolio {
     // Update accessibility
     button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     
-    console.log('Icon created with class:', icon.className);
-    
-    // Add visual feedback with a slight delay to let Font Awesome process
-    setTimeout(() => {
-      const currentIcon = button.querySelector('i, svg');
-      if (currentIcon) {
-        currentIcon.style.transform = 'scale(1.2) rotate(180deg)';
-        setTimeout(() => {
-          currentIcon.style.transform = 'scale(1) rotate(0deg)';
-        }, 250);
-      }
-    }, 50);
-    
-    console.log('=== Theme Icon Updated ===');
+         // console.log('Icon created with class:', icon.className);
+     
+     // Add visual feedback with a slight delay to let Font Awesome process
+     setTimeout(() => {
+       const currentIcon = button.querySelector('i, svg');
+       if (currentIcon) {
+         currentIcon.style.transform = 'scale(1.2) rotate(180deg)';
+         setTimeout(() => {
+           currentIcon.style.transform = 'scale(1) rotate(0deg)';
+         }, 250);
+       }
+     }, 50);
+     
+     // console.log('=== Theme Icon Updated ===');
   }
 
   // Animated typing effect
@@ -378,25 +378,6 @@ class ProfessionalPortfolio {
 
 // Initialize the portfolio when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM loaded, initializing portfolio...');
   new ProfessionalPortfolio();
-  
-  // Additional debug for navbar
-  console.log('Portfolio initialized');
-  const navbar = document.querySelector('.navbar');
-  const navbarNav = document.querySelector('.navbar-nav');
-  const themeToggle = document.querySelector('.theme-toggle');
-  
-  if (navbar) {
-    console.log('Navbar found, computed style:', window.getComputedStyle(navbar).display);
-  }
-  if (navbarNav) {
-    console.log('Navbar-nav found, computed style:', window.getComputedStyle(navbarNav).flexDirection);
-  }
-  if (themeToggle) {
-    console.log('Theme toggle found in DOM');
-  } else {
-    console.error('Theme toggle NOT found in DOM');
-  }
 });
-/* Cache bust: Mon Jul 21 10:38:12 EDT 2025 */
+
