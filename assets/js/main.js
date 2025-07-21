@@ -19,12 +19,9 @@ class ProfessionalPortfolio {
   initTheme() {
     // Wait a bit to ensure DOM is fully ready
     setTimeout(() => {
-      const themeToggle = document.querySelector('.theme-toggle');
+      const themeToggles = document.querySelectorAll('.theme-toggle');
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      // console.log('Theme toggle found:', !!themeToggle);
-      // console.log('Theme toggle HTML:', themeToggle ? themeToggle.outerHTML : 'Not found');
       
       // Set initial theme
       let theme = 'light';
@@ -34,70 +31,62 @@ class ProfessionalPortfolio {
         theme = 'dark';
       }
       
-      // console.log('Setting initial theme:', theme);
       document.documentElement.setAttribute('data-theme', theme);
       this.updateThemeIcon(theme);
 
-      if (themeToggle) {
+      // Add event listeners to all theme toggle buttons
+      themeToggles.forEach(themeToggle => {
         themeToggle.addEventListener('click', (e) => {
-          // console.log('Theme toggle clicked!');
           e.preventDefault();
           e.stopPropagation();
           const currentTheme = document.documentElement.getAttribute('data-theme');
           const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          // console.log('Switching from', currentTheme, 'to', newTheme);
           document.documentElement.setAttribute('data-theme', newTheme);
           localStorage.setItem('theme', newTheme);
           this.updateThemeIcon(newTheme);
         });
-      } else {
-        console.error('Theme toggle button not found!');
-      }
+      });
     }, 100);
   }
 
-  updateThemeIcon(theme) {
-    const button = document.querySelector('.theme-toggle');
+    updateThemeIcon(theme) {
+    const buttons = document.querySelectorAll('.theme-toggle');
     
-    if (!button) {
-      console.error('Theme toggle button not found!');
+    if (buttons.length === 0) {
+      console.error('Theme toggle buttons not found!');
       return;
     }
     
-         // console.log('=== Font Awesome Theme Toggle ===');
-     // console.log('Theme:', theme);
-    
-    // Clear the button and create fresh icon
-    button.innerHTML = '';
-    
-    // Create new icon element
-    const icon = document.createElement('i');
-    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    button.appendChild(icon);
-    
-    // Update accessibility
-    button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-    
-         // console.log('Icon created with class:', icon.className);
-     
-     // Add visual feedback with a slight delay to let Font Awesome process
-     setTimeout(() => {
-       const currentIcon = button.querySelector('i, svg');
-       if (currentIcon) {
-         currentIcon.style.transform = 'scale(1.2) rotate(180deg)';
-         setTimeout(() => {
-           currentIcon.style.transform = 'scale(1) rotate(0deg)';
-         }, 250);
-       }
-     }, 50);
-     
-     //     console.log('=== Theme Icon Updated ===');
+    // Update all theme toggle buttons
+    buttons.forEach(button => {
+      // Clear the button and create fresh icon
+      button.innerHTML = '';
+      
+      // Create new icon element
+      const icon = document.createElement('i');
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      button.appendChild(icon);
+      
+      // Update accessibility
+      button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      
+      // Add visual feedback with a slight delay to let Font Awesome process
+      setTimeout(() => {
+        const currentIcon = button.querySelector('i, svg');
+        if (currentIcon) {
+          currentIcon.style.transform = 'scale(1.2) rotate(180deg)';
+          setTimeout(() => {
+            currentIcon.style.transform = 'scale(1) rotate(0deg)';
+          }, 250);
+        }
+      }, 50);
+    });
   }
 
   // Mobile menu functionality
   initMobileMenu() {
     const navbarToggle = document.querySelector('.navbar-toggle');
-    const navbarMenu = document.querySelector('.navbar-nav');
+    const navbarMenu = document.querySelector('.mobile-nav');
     const body = document.body;
     
     if (!navbarToggle || !navbarMenu) return;
@@ -131,7 +120,7 @@ class ProfessionalPortfolio {
     overlay.addEventListener('click', toggleMenu);
     
     // Close menu when clicking nav links
-    const navLinks = navbarMenu.querySelectorAll('.nav-link');
+    const navLinks = navbarMenu.querySelectorAll('.nav-link, .btn');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (navbarMenu.classList.contains('open')) {

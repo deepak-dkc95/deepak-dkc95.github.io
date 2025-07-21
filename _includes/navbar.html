@@ -5,6 +5,21 @@
     <span class="brand-short">Deepak</span>
   </div>
   
+  <!-- Desktop Menu Items (center) -->
+  <ul class="navbar-nav desktop-nav" id="navbar-menu">
+    {% assign current_url = page.url | downcase %}
+    <li><a class="nav-link {% if current_url == '/' or current_url == '/index.html' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
+    <li><a class="nav-link {% if current_url contains '/blogs' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a></li>
+    <li><a class="nav-link {% if current_url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a></li>
+    <li><a class="nav-link {% if current_url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
+    <li><a class="btn btn-outline-primary" href="{{ '/assets/resume.pdf' | relative_url }}" download>Resume</a></li>
+  </ul>
+
+  <!-- Desktop Theme Toggle (right) -->
+  <button class="theme-toggle desktop-theme" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
   <!-- Mobile Hamburger Button -->
   <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
     <span class="hamburger-line"></span>
@@ -12,15 +27,15 @@
     <span class="hamburger-line"></span>
   </button>
   
-  <ul class="navbar-nav" id="navbar-menu">
-    {% assign current_url = page.url | downcase %}
+  <!-- Mobile Menu Panel -->
+  <ul class="navbar-nav mobile-nav" id="mobile-navbar-menu">
     <li><a class="nav-link {% if current_url == '/' or current_url == '/index.html' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
     <li><a class="nav-link {% if current_url contains '/blogs' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a></li>
     <li><a class="nav-link {% if current_url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a></li>
     <li><a class="nav-link {% if current_url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
     <li><a class="btn btn-outline-primary" href="{{ '/assets/resume.pdf' | relative_url }}" download>Resume</a></li>
     <li>
-      <button class="theme-toggle" aria-label="Toggle dark mode">
+      <button class="theme-toggle mobile-theme" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
       </button>
     </li>
