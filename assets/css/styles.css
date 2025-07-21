@@ -90,6 +90,17 @@ h4 { font-size: 1.1rem; }
   color: var(--accent) !important;
   letter-spacing: -2px;
   text-decoration: none !important;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .brand-full {
+  display: inline;
+}
+
+.navbar-brand .brand-short {
+  display: none;
 }
 
 /* --- HAMBURGER MENU --- */
@@ -398,6 +409,41 @@ footer a:hover, footer a:focus {
     top: auto;
     right: auto;
   }
+
+  .navbar {
+    padding: 1.5rem 1.5rem 0 1.5rem !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem 1rem 0 1rem !important;
+    gap: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+    flex: 1;
+    max-width: calc(100vw - 80px); /* Leave space for hamburger */
+  }
+
+  .navbar-brand .brand-full {
+    display: none;
+  }
+
+  .navbar-brand .brand-short {
+    display: inline;
+  }
+
+  .navbar-toggle {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
 }
 @media (max-width: 768px) {
   .navbar, .hero-section, .professional-card, .project-card, .blog-post, footer {
@@ -411,8 +457,8 @@ footer a:hover, footer a:focus {
   .navbar-toggle {
     display: flex !important;
     position: fixed;
-    top: 2rem;
-    right: 2rem;
+    top: 1rem;
+    right: 1rem;
     z-index: 1002;
   }
 
