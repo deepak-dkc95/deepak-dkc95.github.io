@@ -278,6 +278,57 @@ footer a:hover, footer a:focus {
   outline-offset: 2px;
 }
 
+/* --- PROJECT LAYOUT STYLES --- */
+.project-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.tech-badge {
+  display: inline-block;
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  margin: 0.2rem 0.4rem 0.2rem 0;
+  border-radius: 12px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  transition: all var(--transition);
+}
+
+.tech-badge:hover {
+  background: rgba(100, 255, 218, 0.15);
+  border-color: var(--accent);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.project-highlights ul {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.project-highlights li {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 /* --- REMOVE UNUSED/REDUNDANT STYLES --- */
 /* Removed .skill-section, .skill-bar, .skill-progress, and other unused classes for clarity */
 
