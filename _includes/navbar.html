@@ -18,12 +18,25 @@
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.querySelector('.navbar-toggle');
   const menu = document.getElementById('navbar-menu');
+  function handleResize() {
+    if (window.innerWidth > 900) {
+      menu.classList.remove('open');
+      menu.style.display = 'flex';
+      toggle.style.display = 'none';
+    } else {
+      menu.style.display = menu.classList.contains('open') ? 'flex' : 'none';
+      toggle.style.display = 'block';
+    }
+  }
   if (toggle && menu) {
     toggle.addEventListener('click', function() {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', !expanded);
       menu.classList.toggle('open');
+      menu.style.display = menu.classList.contains('open') ? 'flex' : 'none';
     });
+    window.addEventListener('resize', handleResize);
+    handleResize();
   }
 });
 </script>
@@ -37,10 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
   cursor: pointer;
   margin-left: 1rem;
 }
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: none;
+}
 @media (max-width: 900px) {
   .navbar-toggle { display: block; }
   .navbar-nav {
-    display: none;
     flex-direction: column;
     gap: 1.2rem;
     background: var(--bg-card);
@@ -52,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius: 0 0 var(--radius) var(--radius);
     box-shadow: var(--shadow);
     padding: 1.5rem 1rem;
+    display: none;
+    transition: none;
   }
   .navbar-nav.open {
     display: flex;
