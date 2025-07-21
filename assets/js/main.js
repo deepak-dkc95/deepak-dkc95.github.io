@@ -59,20 +59,26 @@ class ProfessionalPortfolio {
     const button = document.querySelector('.theme-toggle');
     let icon = button ? button.querySelector('i') : null;
     
+    console.log('=== updateThemeIcon Debug ===');
     console.log('Button found:', !!button);
+    console.log('Button element:', button);
     console.log('Icon found:', !!icon);
+    console.log('Icon element:', icon);
     console.log('Button innerHTML:', button ? button.innerHTML : 'No button');
+    console.log('Button children:', button ? Array.from(button.children) : 'No button');
     
     // If icon doesn't exist, create it
     if (!icon && button) {
       console.log('Creating missing icon element');
       icon = document.createElement('i');
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
       button.innerHTML = ''; // Clear any existing content
       button.appendChild(icon);
+      console.log('Icon created and added:', icon);
     }
     
     if (icon && button) {
-      console.log('Updating theme icon to:', theme);
+      console.log('Successfully updating theme icon to:', theme);
       icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
       icon.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
       button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
@@ -83,8 +89,13 @@ class ProfessionalPortfolio {
         icon.style.transform = 'scale(1) rotate(0deg)';
       }, 250);
     } else {
-      console.error('Theme toggle button or icon not found!', { button: !!button, icon: !!icon });
+      console.error('Theme toggle button or icon not found!', { 
+        button: !!button, 
+        icon: !!icon,
+        buttonHTML: button ? button.outerHTML : 'No button'
+      });
     }
+    console.log('=== End Debug ===');
   }
 
   // Animated typing effect
