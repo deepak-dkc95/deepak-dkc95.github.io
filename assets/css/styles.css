@@ -96,18 +96,36 @@ h4 { font-size: 1.1rem; }
 .navbar-toggle {
   display: none;
   flex-direction: column;
-  background: transparent;
-  border: none;
-  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.6rem;
   cursor: pointer;
   z-index: 1001;
+  width: 44px;
+  height: 44px;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition);
+  position: relative;
+}
+
+.navbar-toggle:hover {
+  background: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.05);
+}
+
+.navbar-toggle:hover .hamburger-line {
+  background: var(--bg-main);
 }
 
 .hamburger-line {
-  width: 25px;
-  height: 3px;
+  width: 20px;
+  height: 2px;
   background: var(--accent);
-  margin: 3px 0;
+  margin: 2px 0;
   transition: all 0.3s ease;
   border-radius: 2px;
 }
@@ -372,6 +390,15 @@ footer a:hover, footer a:focus {
   }
   .navbar-nav { gap: 1.5rem; }
 }
+
+@media (max-width: 900px) {
+  .navbar-toggle {
+    display: flex !important;
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+}
 @media (max-width: 768px) {
   .navbar, .hero-section, .professional-card, .project-card, .blog-post, footer {
     max-width: 100vw;
@@ -380,9 +407,13 @@ footer a:hover, footer a:focus {
   }
   .hero-title { font-size: clamp(1.2rem, 7vw, 1.7rem); }
 
-  /* Mobile Navigation */
+    /* Mobile Navigation */
   .navbar-toggle {
     display: flex !important;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1002;
   }
 
   .navbar-nav {
@@ -396,7 +427,7 @@ footer a:hover, footer a:focus {
     flex-direction: column !important;
     justify-content: flex-start !important;
     align-items: flex-start !important;
-    padding: 4rem 2rem 2rem 2rem !important;
+    padding: 5rem 2rem 2rem 2rem !important;
     gap: 1.5rem !important;
     box-shadow: var(--shadow);
     transition: right 0.3s ease;
@@ -428,6 +459,16 @@ footer a:hover, footer a:focus {
   .navbar-nav .theme-toggle {
     align-self: center;
     margin-top: 1rem;
+  }
+
+  /* Close button styling when menu is open */
+  .navbar-toggle[aria-expanded="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .navbar-toggle[aria-expanded="true"] .hamburger-line {
+    background: var(--bg-main);
   }
 
   /* Overlay */
