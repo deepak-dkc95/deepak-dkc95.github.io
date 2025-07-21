@@ -373,3 +373,19 @@ document.addEventListener('DOMContentLoaded', function() {
     handleResize();
   }
 });
+
+// Initialize the portfolio when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new ProfessionalPortfolio();
+  
+  // Additional debug for navbar
+  console.log('Portfolio initialized');
+  const navbar = document.querySelector('.navbar');
+  const navbarNav = document.querySelector('.navbar-nav');
+  if (navbar) {
+    console.log('Navbar found, computed style:', window.getComputedStyle(navbar).display);
+  }
+  if (navbarNav) {
+    console.log('Navbar-nav found, computed style:', window.getComputedStyle(navbarNav).flexDirection);
+  }
+});
