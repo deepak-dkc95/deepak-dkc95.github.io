@@ -57,45 +57,40 @@ class ProfessionalPortfolio {
 
   updateThemeIcon(theme) {
     const button = document.querySelector('.theme-toggle');
-    let icon = button ? button.querySelector('i') : null;
     
-    console.log('=== updateThemeIcon Debug ===');
-    console.log('Button found:', !!button);
-    console.log('Button element:', button);
-    console.log('Icon found:', !!icon);
-    console.log('Icon element:', icon);
-    console.log('Button innerHTML:', button ? button.innerHTML : 'No button');
-    console.log('Button children:', button ? Array.from(button.children) : 'No button');
-    
-    // If icon doesn't exist, create it
-    if (!icon && button) {
-      console.log('Creating missing icon element');
-      icon = document.createElement('i');
-      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-      button.innerHTML = ''; // Clear any existing content
-      button.appendChild(icon);
-      console.log('Icon created and added:', icon);
+    if (!button) {
+      console.error('Theme toggle button not found!');
+      return;
     }
     
-    if (icon && button) {
-      console.log('Successfully updating theme icon to:', theme);
-      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-      icon.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      
-      // Add visual feedback
-      icon.style.transform = 'scale(1.2) rotate(180deg)';
-      setTimeout(() => {
-        icon.style.transform = 'scale(1) rotate(0deg)';
-      }, 250);
-    } else {
-      console.error('Theme toggle button or icon not found!', { 
-        button: !!button, 
-        icon: !!icon,
-        buttonHTML: button ? button.outerHTML : 'No button'
-      });
-    }
-    console.log('=== End Debug ===');
+    console.log('=== Font Awesome Theme Toggle ===');
+    console.log('Theme:', theme);
+    
+    // Clear the button and create fresh icon
+    button.innerHTML = '';
+    
+    // Create new icon element
+    const icon = document.createElement('i');
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    button.appendChild(icon);
+    
+    // Update accessibility
+    button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    
+    console.log('Icon created with class:', icon.className);
+    
+    // Add visual feedback with a slight delay to let Font Awesome process
+    setTimeout(() => {
+      const currentIcon = button.querySelector('i, svg');
+      if (currentIcon) {
+        currentIcon.style.transform = 'scale(1.2) rotate(180deg)';
+        setTimeout(() => {
+          currentIcon.style.transform = 'scale(1) rotate(0deg)';
+        }, 250);
+      }
+    }, 50);
+    
+    console.log('=== Theme Icon Updated ===');
   }
 
   // Animated typing effect
@@ -404,3 +399,4 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Theme toggle NOT found in DOM');
   }
 });
+/* Cache bust: Mon Jul 21 10:38:12 EDT 2025 */
