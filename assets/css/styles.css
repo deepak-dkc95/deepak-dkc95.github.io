@@ -91,6 +91,39 @@ h4 { font-size: 1.1rem; }
   letter-spacing: -2px;
   text-decoration: none !important;
 }
+
+/* --- HAMBURGER MENU --- */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background: var(--accent);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.navbar-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 .navbar-nav {
   display: flex !important;
   flex-direction: row !important;
@@ -346,19 +379,72 @@ footer a:hover, footer a:focus {
     padding-right: 0.5rem !important;
   }
   .hero-title { font-size: clamp(1.2rem, 7vw, 1.7rem); }
-  .navbar {
-    flex-direction: column !important;
-    gap: 1rem;
-    padding: 1rem 1rem 0 1rem !important;
-    align-items: flex-start !important;
+
+  /* Mobile Navigation */
+  .navbar-toggle {
+    display: flex !important;
   }
+
   .navbar-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 300px;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border);
     flex-direction: column !important;
-    gap: 1rem;
+    justify-content: flex-start !important;
     align-items: flex-start !important;
-    width: 100% !important;
+    padding: 4rem 2rem 2rem 2rem !important;
+    gap: 1.5rem !important;
+    box-shadow: var(--shadow);
+    transition: right 0.3s ease;
+    z-index: 1000;
   }
-  .btn, .btn-primary, .btn-outline-primary { width: 100%; }
+
+  .navbar-nav.open {
+    right: 0;
+  }
+
+  .navbar-nav li {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100%;
+    padding: 1rem !important;
+    text-align: left;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-nav .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .navbar-nav .theme-toggle {
+    align-self: center;
+    margin-top: 1rem;
+  }
+
+  /* Overlay */
+  .navbar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+
+  .navbar-overlay.show {
+    display: block;
+  }
 }
 @media (max-width: 480px) {
   .container { padding-left: 0.5rem; padding-right: 0.5rem; }

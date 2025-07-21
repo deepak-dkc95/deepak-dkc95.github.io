@@ -5,6 +5,7 @@ class ProfessionalPortfolio {
 
   init() {
     this.initTheme();
+    this.initMobileMenu();
     this.initTypingAnimation();
     this.initScrollAnimations();
     this.initTechStack();
@@ -90,7 +91,61 @@ class ProfessionalPortfolio {
        }
      }, 50);
      
-     // console.log('=== Theme Icon Updated ===');
+     //     console.log('=== Theme Icon Updated ===');
+  }
+
+  // Mobile menu functionality
+  initMobileMenu() {
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarMenu = document.querySelector('.navbar-nav');
+    const body = document.body;
+    
+    if (!navbarToggle || !navbarMenu) return;
+    
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'navbar-overlay';
+    body.appendChild(overlay);
+    
+    // Toggle menu function
+    const toggleMenu = () => {
+      const isOpen = navbarMenu.classList.contains('open');
+      
+      if (isOpen) {
+        // Close menu
+        navbarMenu.classList.remove('open');
+        overlay.classList.remove('show');
+        navbarToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        // Open menu
+        navbarMenu.classList.add('open');
+        overlay.classList.add('show');
+        navbarToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    };
+    
+    // Event listeners
+    navbarToggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    
+    // Close menu when clicking nav links
+    const navLinks = navbarMenu.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navbarMenu.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navbarMenu.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
   }
 
   // Animated typing effect

@@ -2,6 +2,14 @@
   <div class="navbar-brand">
     <i class="fas fa-code me-2" aria-hidden="true"></i>Deepak Chourasia
   </div>
+  
+  <!-- Mobile Hamburger Button -->
+  <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+  
   <ul class="navbar-nav" id="navbar-menu">
     {% assign current_url = page.url | downcase %}
     <li><a class="nav-link {% if current_url == '/' or current_url == '/index.html' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
