@@ -109,6 +109,14 @@ h4 { font-size: 1.25rem; }
 .navbar-nav {
   display: flex;
   gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-nav li {
+  display: flex;
+  align-items: center;
 }
 .nav-link {
   color: var(--text-secondary) !important;
@@ -278,6 +286,15 @@ footer a:hover {
   .navbar-nav {
     flex-direction: column;
     gap: 1.2rem;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+  .navbar-nav li {
+    display: flex;
+    align-items: center;
   }
   .btn, .btn-primary, .btn-outline-primary {
     width: 100%;
