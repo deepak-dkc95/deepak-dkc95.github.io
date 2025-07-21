@@ -1,10 +1,7 @@
-<nav class="navbar" role="navigation" aria-label="Main Navigation">
+<nav class="navbar" role="navigation" aria-label="Main Navigation" style="background: transparent; position: static; top: auto;">
   <div class="navbar-brand">
     <i class="fas fa-code me-2" aria-hidden="true"></i>Deepak Chourasia
   </div>
-  <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-menu">
-    <span class="fas fa-bars"></span>
-  </button>
   <ul class="navbar-nav" id="navbar-menu">
     {% assign current_url = page.url | downcase %}
     <li><a class="nav-link {% if current_url == '/' or current_url == '/index.html' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
@@ -12,43 +9,53 @@
     <li><a class="nav-link {% if current_url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a></li>
     <li><a class="nav-link {% if current_url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
     <li><a class="btn btn-outline-primary" href="{{ '/assets/resume.pdf' | relative_url }}" download>Resume</a></li>
+    <li>
+      <button class="theme-toggle" aria-label="Toggle dark mode" style="margin-left:1.5rem;">
+        <i class="fas fa-moon"></i>
+      </button>
+    </li>
   </ul>
 </nav>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.querySelector('.navbar-toggle');
-  const menu = document.getElementById('navbar-menu');
-  function handleResize() {
-    if (window.innerWidth > 900) {
-      menu.classList.remove('open');
-      menu.style.display = 'flex';
-      toggle.style.display = 'none';
-    } else {
-      menu.style.display = menu.classList.contains('open') ? 'flex' : 'none';
-      toggle.style.display = 'block';
-    }
-  }
-  if (toggle && menu) {
-    toggle.addEventListener('click', function() {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !expanded);
-      menu.classList.toggle('open');
-      menu.style.display = menu.classList.contains('open') ? 'flex' : 'none';
-    });
-    window.addEventListener('resize', handleResize);
-    handleResize();
-  }
+  // Theme toggle logic
+  const themeToggle = document.querySelector('.theme-toggle');
+  const icon = themeToggle.querySelector('i');
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  let theme = 'light';
+  if (savedTheme) theme = savedTheme;
+  else if (prefersDark.matches) theme = 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  });
 });
 </script>
 <style>
-.navbar-toggle {
-  display: none;
-  background: none;
-  border: none;
+.navbar {
+  background: transparent !important;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 2rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: static;
+  top: auto;
+  z-index: 100;
+}
+.navbar-brand {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 800;
   font-size: 2rem;
-  color: var(--accent);
-  cursor: pointer;
-  margin-left: 1rem;
+  color: var(--accent) !important;
+  letter-spacing: -2px;
 }
 .navbar-nav {
   display: flex;
@@ -58,10 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
   list-style: none;
   margin: 0;
   padding: 0;
-  transition: none;
+}
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  color: var(--accent);
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s;
+}
+.theme-toggle:focus {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
 }
 @media (max-width: 900px) {
-  .navbar-toggle { display: block; }
   .navbar-nav {
     flex-direction: column;
     gap: 1.2rem;
@@ -75,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
     box-shadow: var(--shadow);
     padding: 1.5rem 1rem;
     display: none;
-    transition: none;
   }
   .navbar-nav.open {
     display: flex;

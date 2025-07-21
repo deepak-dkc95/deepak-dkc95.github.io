@@ -5,11 +5,11 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
 ---
 
 <!-- Hero Section -->
-<section class="hero-section">
+<section class="hero-section card-section">
   <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Portrait of Deepak Chourasia, Systems Engineer" class="hero-avatar">
   <h1 class="hero-title">Deepak Chourasia</h1>
   <div class="animated-typing"><span id="typed-text"></span><span class="blinking-cursor">|</span></div>
-  <div style="margin-top:2.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
+  <div style="margin-top:2.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;">
     <a href="{{ '/about' | relative_url }}" class="btn btn-primary">About Me</a>
     <a href="{{ '/assets/resume.pdf' | relative_url }}" class="btn btn-outline-primary" download>Resume</a>
     <a href="{{ '/blogs' | relative_url }}" class="btn btn-outline-primary">Technical Blog</a>
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- Professional Expertise Section -->
-<section class="container my-5">
+<section class="card-section">
   <div class="professional-card">
     <h2 class="text-center mb-4">
       <i class="fas fa-cogs me-2 text-gradient" aria-hidden="true"></i>Technical Expertise
@@ -90,29 +90,31 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Project Highlights Section -->
-<section class="professional-card" style="margin-top:5rem;">
-  <h2 style="color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;">Project Highlights</h2>
-  <div style="display:flex;flex-wrap:wrap;gap:2.5rem;">
-    <div class="project-card">
-      <i class="fab fa-aws fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
-      <h5 style="font-weight:700;">Cloud Automation Suite</h5>
-      <p>Automated AWS infrastructure provisioning and monitoring using Terraform and custom scripts.</p>
-    </div>
-    <div class="project-card">
-      <i class="fas fa-shield-alt fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
-      <h5 style="font-weight:700;">Security Audit Platform</h5>
-      <p>Developed a platform for automated security audits and compliance checks for cloud environments.</p>
-    </div>
-    <div class="project-card">
-      <i class="fab fa-docker fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
-      <h5 style="font-weight:700;">Containerized CI/CD</h5>
-      <p>Built a scalable CI/CD pipeline using Docker, Kubernetes, and GitHub Actions for rapid deployments.</p>
+<section class="card-section">
+  <div class="professional-card">
+    <h2 style="color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;">Project Highlights</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;">
+      <div class="project-card">
+        <i class="fab fa-aws fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
+        <h5 style="font-weight:700;">Cloud Automation Suite</h5>
+        <p>Automated AWS infrastructure provisioning and monitoring using Terraform and custom scripts.</p>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-shield-alt fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
+        <h5 style="font-weight:700;">Security Audit Platform</h5>
+        <p>Developed a platform for automated security audits and compliance checks for cloud environments.</p>
+      </div>
+      <div class="project-card">
+        <i class="fab fa-docker fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
+        <h5 style="font-weight:700;">Containerized CI/CD</h5>
+        <p>Built a scalable CI/CD pipeline using Docker, Kubernetes, and GitHub Actions for rapid deployments.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Professional Skills Section -->
-<section class="container my-5">
+<section class="card-section">
   <div class="professional-card">
     <h2 class="text-center mb-4">
       <i class="fas fa-chart-line me-2 text-gradient" aria-hidden="true"></i>Core Competencies
@@ -153,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Latest Technical Content -->
 {% assign latest_post = site.posts | first %}
 {% if latest_post %}
-<section class="container my-5">
+<section class="card-section">
   <div class="professional-card animate__animated animate__fadeInUp">
     <h2 class="text-center mb-4">
       <i class="fas fa-newspaper me-2 text-gradient" aria-hidden="true"></i>Latest Technical Article
@@ -183,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
 {% endif %}
 
 <!-- Professional Contact Section -->
-<section class="container my-5">
+<section class="card-section">
   <div class="professional-card text-center animate__animated animate__fadeInUp">
     <h2 class="mb-4">
       <i class="fas fa-handshake me-2 text-gradient" aria-hidden="true"></i>Let's Collaborate
@@ -202,3 +204,14 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </section>
+
+<style>
+.card-section {
+  max-width: 900px;
+  margin: 3rem auto 0 auto;
+  padding: 0 1.5rem;
+}
+@media (max-width: 1000px) {
+  .card-section { max-width: 98vw; }
+}
+</style>
