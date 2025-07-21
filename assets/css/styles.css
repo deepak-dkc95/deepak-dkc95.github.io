@@ -286,3 +286,12 @@ footer a:hover, footer a:focus {
 ::-webkit-scrollbar-track { background: var(--bg-card); }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+.card-section {
+  max-width: 900px;
+  margin: 3rem auto 0 auto;
+  padding: 0 1.5rem;
+}
+@media (max-width: 1000px) {
+  .card-section { max-width: 98vw; }
+}

@@ -15,36 +15,6 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
     <a href="{{ '/blogs' | relative_url }}" class="btn btn-outline-primary">Technical Blog</a>
   </div>
 </section>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const phrases = [
-    'Cloud Engineer',
-    'DevOps Specialist',
-    'Tech Writer',
-    'Building scalable, secure, and efficient cloud solutions',
-    'Open to new opportunities and challenges'
-  ];
-  let i = 0, j = 0, isDeleting = false, current = '', speed = 80;
-  const el = document.getElementById('typed-text');
-  function type() {
-    if (!el) return;
-    if (!isDeleting && j <= phrases[i].length) {
-      current = phrases[i].substring(0, j++);
-      el.textContent = current;
-      setTimeout(type, speed);
-    } else if (isDeleting && j >= 0) {
-      current = phrases[i].substring(0, j--);
-      el.textContent = current;
-      setTimeout(type, speed / 2);
-    } else {
-      isDeleting = !isDeleting;
-      if (!isDeleting) i = (i + 1) % phrases.length;
-      setTimeout(type, 900);
-    }
-  }
-  type();
-});
-</script>
 
 <!-- Professional Expertise Section -->
 <section class="card-section">
@@ -204,14 +174,3 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </section>
-
-<style>
-.card-section {
-  max-width: 900px;
-  margin: 3rem auto 0 auto;
-  padding: 0 1.5rem;
-}
-@media (max-width: 1000px) {
-  .card-section { max-width: 98vw; }
-}
-</style>

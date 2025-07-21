@@ -300,6 +300,76 @@ class ProfessionalPortfolio {
 }
 
 // Initialize the professional portfolio
-document.addEventListener('DOMContentLoaded', () => {
-  new ProfessionalPortfolio();
+document.addEventListener('DOMContentLoaded', function() {
+  // Theme toggle logic
+  const themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    const icon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let theme = 'light';
+    if (savedTheme) theme = savedTheme;
+    else if (prefersDark.matches) theme = 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+  }
+
+  // --- ANIMATED TYPING EFFECT ---
+  const phrases = [
+    'Cloud Engineer',
+    'DevOps Specialist',
+    'Tech Writer',
+    'Building scalable, secure, and efficient cloud solutions',
+    'Open to new opportunities and challenges'
+  ];
+  let i = 0, j = 0, isDeleting = false, current = '', speed = 80;
+  const el = document.getElementById('typed-text');
+  function type() {
+    if (!el) return;
+    if (!isDeleting && j <= phrases[i].length) {
+      current = phrases[i].substring(0, j++);
+      el.textContent = current;
+      setTimeout(type, speed);
+    } else if (isDeleting && j >= 0) {
+      current = phrases[i].substring(0, j--);
+      el.textContent = current;
+      setTimeout(type, speed / 2);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) i = (i + 1) % phrases.length;
+      setTimeout(type, 900);
+    }
+  }
+  if (el) type();
+
+  // --- NAVBAR MOBILE MENU TOGGLE (if hamburger is present) ---
+  const navbarToggle = document.querySelector('.navbar-toggle');
+  const navbarMenu = document.getElementById('navbar-menu');
+  if (navbarToggle && navbarMenu) {
+    function handleResize() {
+      if (window.innerWidth > 900) {
+        navbarMenu.classList.remove('open');
+        navbarMenu.style.display = 'flex';
+        navbarToggle.style.display = 'none';
+      } else {
+        navbarMenu.style.display = navbarMenu.classList.contains('open') ? 'flex' : 'none';
+        navbarToggle.style.display = 'block';
+      }
+    }
+    navbarToggle.addEventListener('click', function() {
+      const expanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+      navbarToggle.setAttribute('aria-expanded', !expanded);
+      navbarMenu.classList.toggle('open');
+      navbarMenu.style.display = navbarMenu.classList.contains('open') ? 'flex' : 'none';
+    });
+    window.addEventListener('resize', handleResize);
+    handleResize();
+  }
 });

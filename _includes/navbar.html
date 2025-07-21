@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="Main Navigation" style="background: transparent; position: static; top: auto;">
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
   <div class="navbar-brand">
     <i class="fas fa-code me-2" aria-hidden="true"></i>Deepak Chourasia
   </div>
@@ -10,92 +10,9 @@
     <li><a class="nav-link {% if current_url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
     <li><a class="btn btn-outline-primary" href="{{ '/assets/resume.pdf' | relative_url }}" download>Resume</a></li>
     <li>
-      <button class="theme-toggle" aria-label="Toggle dark mode" style="margin-left:1.5rem;">
+      <button class="theme-toggle" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
       </button>
     </li>
   </ul>
 </nav>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Theme toggle logic
-  const themeToggle = document.querySelector('.theme-toggle');
-  const icon = themeToggle.querySelector('i');
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-  let theme = 'light';
-  if (savedTheme) theme = savedTheme;
-  else if (prefersDark.matches) theme = 'dark';
-  document.documentElement.setAttribute('data-theme', theme);
-  icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-  themeToggle.addEventListener('click', function() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-  });
-});
-</script>
-<style>
-.navbar {
-  background: transparent !important;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2rem 2rem 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: static;
-  top: auto;
-  z-index: 100;
-}
-.navbar-brand {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 2rem;
-  color: var(--accent) !important;
-  letter-spacing: -2px;
-}
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.7rem;
-  color: var(--accent);
-  cursor: pointer;
-  outline: none;
-  transition: color 0.2s;
-}
-.theme-toggle:focus {
-  outline: 2px solid var(--accent-dark);
-  outline-offset: 2px;
-}
-@media (max-width: 900px) {
-  .navbar-nav {
-    flex-direction: column;
-    gap: 1.2rem;
-    background: var(--bg-card);
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    z-index: 999;
-    border-radius: 0 0 var(--radius) var(--radius);
-    box-shadow: var(--shadow);
-    padding: 1.5rem 1rem;
-    display: none;
-  }
-  .navbar-nav.open {
-    display: flex;
-  }
-}
-</style>
