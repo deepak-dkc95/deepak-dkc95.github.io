@@ -16,61 +16,74 @@ class ProfessionalPortfolio {
 
   // Professional theme management
   initTheme() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    console.log('Theme toggle found:', !!themeToggle);
-    
-    // Set initial theme
-    let theme = 'light';
-    if (savedTheme) {
-      theme = savedTheme;
-    } else if (prefersDark.matches) {
-      theme = 'dark';
-    }
-    
-    console.log('Setting initial theme:', theme);
-    document.documentElement.setAttribute('data-theme', theme);
-    this.updateThemeIcon(theme);
+    // Wait a bit to ensure DOM is fully ready
+    setTimeout(() => {
+      const themeToggle = document.querySelector('.theme-toggle');
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      console.log('Theme toggle found:', !!themeToggle);
+      console.log('Theme toggle HTML:', themeToggle ? themeToggle.outerHTML : 'Not found');
+      
+      // Set initial theme
+      let theme = 'light';
+      if (savedTheme) {
+        theme = savedTheme;
+      } else if (prefersDark.matches) {
+        theme = 'dark';
+      }
+      
+      console.log('Setting initial theme:', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+      this.updateThemeIcon(theme);
 
-    if (themeToggle) {
-      themeToggle.addEventListener('click', (e) => {
-        console.log('Theme toggle clicked!');
-        e.preventDefault();
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        console.log('Switching from', currentTheme, 'to', newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        this.updateThemeIcon(newTheme);
-        
-        // Force a repaint
-        document.body.style.display = 'none';
-        document.body.offsetHeight; // Trigger reflow
-        document.body.style.display = '';
-      });
-    } else {
-      console.error('Theme toggle button not found!');
-    }
+      if (themeToggle) {
+        themeToggle.addEventListener('click', (e) => {
+          console.log('Theme toggle clicked!');
+          e.preventDefault();
+          e.stopPropagation();
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          console.log('Switching from', currentTheme, 'to', newTheme);
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          this.updateThemeIcon(newTheme);
+        });
+      } else {
+        console.error('Theme toggle button not found!');
+      }
+    }, 100);
   }
 
   updateThemeIcon(theme) {
-    const icon = document.querySelector('.theme-toggle i');
     const button = document.querySelector('.theme-toggle');
-    if (icon) {
+    let icon = button ? button.querySelector('i') : null;
+    
+    console.log('Button found:', !!button);
+    console.log('Icon found:', !!icon);
+    console.log('Button innerHTML:', button ? button.innerHTML : 'No button');
+    
+    // If icon doesn't exist, create it
+    if (!icon && button) {
+      console.log('Creating missing icon element');
+      icon = document.createElement('i');
+      button.innerHTML = ''; // Clear any existing content
+      button.appendChild(icon);
+    }
+    
+    if (icon && button) {
       console.log('Updating theme icon to:', theme);
       icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
       icon.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      if (button) {
-        button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      }
+      button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      
+      // Add visual feedback
       icon.style.transform = 'scale(1.2) rotate(180deg)';
       setTimeout(() => {
         icon.style.transform = 'scale(1) rotate(0deg)';
       }, 250);
     } else {
-      console.error('Theme toggle icon not found!');
+      console.error('Theme toggle button or icon not found!', { button: !!button, icon: !!icon });
     }
   }
 
