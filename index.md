@@ -135,14 +135,6 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
         <a href="{{ '/projects/smart-aws-scheduler' | relative_url }}" class="btn btn-sm btn-outline-primary mt-3">Learn More →</a>
       </div>
     </div>
-    <div>
-      <div class="project-card">
-        <i class="fas fa-server fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
-        <h5 style="font-weight:700;">Headless Home Lab Server</h5>
-        <p>Repurposed old laptop into a full-featured home server with Tailscale VPN, Samba file sharing, and Prometheus/Grafana monitoring.</p>
-        <a href="{{ '/projects/home-lab-server' | relative_url }}" class="btn btn-sm btn-outline-primary mt-3">Learn More →</a>
-      </div>
-    </div>
   </div>
   <div class="text-center mt-8">
     <a href="{{ '/projects' | relative_url }}" class="btn btn-primary">

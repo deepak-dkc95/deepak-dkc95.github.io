@@ -109,7 +109,8 @@ h4 { font-size: 1.1rem; }
 }
 
 /* Professional card headings */
-.professional-card h1 {
+.professional-card h1,
+.about-section h1 {
   color: var(--accent);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;

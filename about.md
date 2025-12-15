@@ -2,9 +2,8 @@
 layout: default
 ---
 
-# About Me
-
 <section class="professional-card about-section">
+  <h1>About Me</h1>
   <img src="{{ '/assets/images/deepak.jpg' | relative_url }}" alt="Deepak Chourasia" class="hero-avatar">
   <h2>Deepak Chourasia</h2>
   <h5>Cloud Engineer • DevOps Specialist • Writer</h5>
