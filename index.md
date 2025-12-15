@@ -12,7 +12,6 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
   <div style="margin-top:2.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;">
     <a href="{{ '/about' | relative_url }}" class="btn btn-primary">About Me</a>
     <a href="{{ '/assets/resume.pdf' | relative_url }}" class="btn btn-outline-primary" download>Resume</a>
-    <a href="{{ '/blogs' | relative_url }}" class="btn btn-outline-primary">Technical Blog</a>
   </div>
 </section>
 
@@ -121,38 +120,6 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
     </div>
   </div>
 </section>
-
-<!-- Latest Technical Content -->
-{% assign latest_post = site.posts | first %}
-{% if latest_post %}
-<section class="card-section">
-  <div class="professional-card animate__animated animate__fadeInUp">
-    <h2 class="text-center mb-4">
-      <i class="fas fa-newspaper me-2 text-gradient" aria-hidden="true"></i>Latest Technical Article
-    </h2>
-    <article class="text-center">
-      <div class="blog-meta justify-content-center mb-3">
-        <small><i class="far fa-calendar-alt me-1" aria-hidden="true"></i>{{ latest_post.date | date: "%B %d, %Y" }}</small>
-        <small><i class="far fa-clock me-1" aria-hidden="true"></i><span class="reading-time" data-content="{{ latest_post.content | strip_html | split: ' ' | size }}">5</span> min read</small>
-      </div>
-      <h3 class="fw-bold">
-        <a href="{{ latest_post.url | relative_url }}" class="text-decoration-none text-gradient">{{ latest_post.title }}</a>
-      </h3>
-      <p class="text-muted mb-4">{{ latest_post.excerpt | strip_html | truncatewords: 25 }}...</p>
-      {% if latest_post.tags %}
-      <div class="blog-tags justify-content-center mb-4">
-        {% for tag in latest_post.tags limit: 4 %}
-        <span class="blog-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
-      <a href="{{ latest_post.url | relative_url }}" class="btn btn-primary">
-        <i class="fas fa-arrow-right me-2" aria-hidden="true"></i>Read Article
-      </a>
-    </article>
-  </div>
-</section>
-{% endif %}
 
 <!-- Professional Contact Section -->
 <section class="card-section">

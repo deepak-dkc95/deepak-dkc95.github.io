@@ -10,7 +10,6 @@ A modern, tech-savvy personal portfolio website built with Jekyll, featuring dar
 - **Tech Stack Showcase** - Animated technology icons with hover effects
 - **GitHub-style Activity Graph** - Visual representation of coding activity
 - **Skills Progress Bars** - Animated skill visualization
-- **Enhanced Blog System** - Reading time, tags, categories, and search
 - **Responsive Design** - Mobile-first approach with Bootstrap 5
 
 ### Technical Features
@@ -19,13 +18,6 @@ A modern, tech-savvy personal portfolio website built with Jekyll, featuring dar
 - **Accessibility** - ARIA labels, keyboard navigation, screen reader support
 - **Modern CSS** - CSS Grid, Flexbox, CSS Variables, animations
 - **Progressive Enhancement** - Works without JavaScript
-
-### Blog Features
-- **Search & Filter** - Real-time blog search and category filtering
-- **Reading Time** - Automatic calculation based on content length
-- **View Counter** - Local storage-based view tracking
-- **Tags & Categories** - Organized content classification
-- **Related Posts** - Smart content recommendations
 
 ## 🛠️ Tech Stack
 
@@ -75,7 +67,6 @@ A modern, tech-savvy personal portfolio website built with Jekyll, featuring dar
 Edit `_config.yml` to customize:
 - Site title, description, and author
 - Social media links
-- Blog settings
 - SEO configuration
 
 ### Styling
@@ -84,25 +75,8 @@ Edit `_config.yml` to customize:
 - **Animations**: Modify animation durations and effects
 
 ### Content
-- **Blog Posts**: Add new posts in `_posts/` directory
 - **Pages**: Create new pages in the root directory
 - **Images**: Store images in `assets/images/`
-
-## 📝 Adding Blog Posts
-
-Create new blog posts in the `_posts/` directory with the following front matter:
-
-```yaml
----
-layout: post
-title: "Your Post Title"
-date: 2025-01-01
-description: "Brief description of your post"
-author: "Deepak Chourasia"
-categories: [Category1, Category2]
-tags: [tag1, tag2, tag3]
----
-```
 
 ## 🚀 Deployment
 
@@ -126,7 +100,6 @@ bundle exec jekyll build
 ├── _config.yml          # Site configuration
 ├── _layouts/            # Page layouts
 ├── _includes/           # Reusable components
-├── _posts/              # Blog posts
 ├── assets/              # Static assets
 │   ├── css/            # Stylesheets
 │   ├── js/             # JavaScript files

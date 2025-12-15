@@ -11,7 +11,6 @@ class ProfessionalPortfolio {
     this.initTechStack();
     this.initSkillBars();
     this.initContactForm();
-    this.initBlogFeatures();
     this.initPerformanceOptimizations();
   }
 
@@ -300,72 +299,6 @@ class ProfessionalPortfolio {
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
-    }
-  }
-
-  // Blog reading time and features
-  initBlogFeatures() {
-    this.calculateReadingTime();
-    this.initBlogSearch();
-  }
-
-  calculateReadingTime() {
-    document.querySelectorAll('.reading-time').forEach(element => {
-      const content = element.getAttribute('data-content') || 
-                    element.closest('article')?.textContent || '';
-      const wordCount = content.split(/\s+/).length;
-      const readingTime = Math.ceil(wordCount / 200);
-      element.textContent = readingTime;
-    });
-  }
-
-  initBlogSearch() {
-    const searchInput = document.getElementById('blogSearch');
-    const categoryFilter = document.getElementById('categoryFilter');
-    
-    if (searchInput && categoryFilter) {
-      const debouncedFilter = this.debounce(this.filterBlogs.bind(this), 300);
-      
-      searchInput.addEventListener('input', debouncedFilter);
-      categoryFilter.addEventListener('change', debouncedFilter);
-    }
-  }
-
-  filterBlogs() {
-    const searchTerm = document.getElementById('blogSearch')?.value.toLowerCase() || '';
-    const selectedCategory = document.getElementById('categoryFilter')?.value.toLowerCase() || '';
-    const blogPosts = document.querySelectorAll('.blog-post');
-    let visibleCount = 0;
-    
-    blogPosts.forEach(post => {
-      const title = post.querySelector('h3')?.textContent.toLowerCase() || '';
-      const content = post.querySelector('p')?.textContent.toLowerCase() || '';
-      const tags = Array.from(post.querySelectorAll('.blog-tag'))
-                       .map(tag => tag.textContent.toLowerCase());
-      
-      const matchesSearch = !searchTerm || title.includes(searchTerm) || content.includes(searchTerm);
-      const matchesCategory = !selectedCategory || tags.includes(selectedCategory);
-      
-      if (matchesSearch && matchesCategory) {
-        post.style.display = 'block';
-        visibleCount++;
-      } else {
-        post.style.display = 'none';
-      }
-    });
-    
-    // Show/hide no results message
-    const noResults = document.getElementById('noResults');
-    const blogList = document.getElementById('blogList');
-    
-    if (noResults && blogList) {
-      if (visibleCount === 0) {
-        noResults.classList.remove('d-none');
-        blogList.style.opacity = '0.5';
-      } else {
-        noResults.classList.add('d-none');
-        blogList.style.opacity = '1';
-      }
     }
   }
 

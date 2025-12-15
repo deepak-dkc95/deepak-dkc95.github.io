@@ -9,7 +9,6 @@
   <ul class="navbar-nav desktop-nav" id="navbar-menu">
     {% assign current_url = page.url | downcase %}
     <li><a class="nav-link {% if current_url == '/' or current_url == '/index.html' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
-    <li><a class="nav-link {% if current_url contains '/blogs' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a></li>
     <li><a class="nav-link {% if current_url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a></li>
     <li><a class="nav-link {% if current_url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
     <li><a class="btn btn-outline-primary" href="{{ '/assets/resume.pdf' | relative_url }}" download>Resume</a></li>
@@ -30,7 +29,6 @@
   <!-- Mobile Menu Panel -->
   <ul class="navbar-nav mobile-nav" id="mobile-navbar-menu">
     <li><a class="nav-link {% if current_url == '/' or current_url == '/index.html' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a></li>
-    <li><a class="nav-link {% if current_url contains '/blogs' %}active{% endif %}" href="{{ '/blogs' | relative_url }}">Blogs</a></li>
     <li><a class="nav-link {% if current_url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a></li>
     <li><a class="nav-link {% if current_url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Contact</a></li>
     <li><a class="btn btn-outline-primary" href="{{ '/assets/resume.pdf' | relative_url }}" download>Resume</a></li>
