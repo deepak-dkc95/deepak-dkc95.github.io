@@ -2,72 +2,249 @@
 layout: default
 ---
 
-<article class="project-detail">
-  <header class="mb-4">
-    <h1 class="fw-bold text-primary">{{ page.title }}</h1>
-    <div class="project-meta mb-3">
+<article class="project-detail-page">
+  <div class="professional-card">
+    <header class="mb-8">
+      <h1 class="project-page-title">{{ page.title }}</h1>
+
       {% if page.technologies %}
-      <div class="tech-stack mb-2">
+      <div class="flex flex-wrap gap-2 mt-4 mb-4">
         {% for tech in page.technologies %}
         <span class="tech-badge">{{ tech }}</span>
         {% endfor %}
       </div>
       {% endif %}
-      {% if page.github_url or page.demo_url %}
-      <div class="project-links">
-        {% if page.github_url %}
-        <a href="{{ page.github_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
-          <i class="fab fa-github me-1" aria-hidden="true"></i>View Code
-        </a>
-        {% endif %}
-        {% if page.demo_url %}
-        <a href="{{ page.demo_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <i class="fas fa-external-link-alt me-1" aria-hidden="true"></i>Live Demo
-        </a>
-        {% endif %}
+
+      {% if page.description %}
+      <p class="project-description">{{ page.description }}</p>
+      {% endif %}
+
+      {% if page.highlights %}
+      <div class="mt-6">
+        <h3 class="section-heading mb-4">Key Highlights</h3>
+        <ul class="highlights-list">
+          {% for highlight in page.highlights %}
+          <li><i class="fas fa-check-circle me-2" aria-hidden="true"></i>{{ highlight }}</li>
+          {% endfor %}
+        </ul>
       </div>
       {% endif %}
+    </header>
+
+    {% if page.image %}
+    <div class="mb-8">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="project-image">
     </div>
-    {% if page.description %}
-    <p class="lead text-muted">{{ page.description }}</p>
     {% endif %}
-  </header>
-  
-  {% if page.image %}
-  <div class="project-image mb-4">
-    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid rounded shadow-sm">
-  </div>
-  {% endif %}
-  
-  <div class="project-content">
-    {{ content }}
-  </div>
-  
-  {% if page.highlights %}
-  <section class="project-highlights mt-4">
-    <h3>Key Features</h3>
-    <ul class="list-unstyled">
-      {% for highlight in page.highlights %}
-      <li class="mb-2">
-        <i class="fas fa-check-circle text-primary me-2" aria-hidden="true"></i>{{ highlight }}
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-  
-  <footer class="mt-5 pt-3 border-top">
-    <div class="d-flex justify-content-between align-items-center">
-      <small class="text-muted">
-        {% if page.date %}
-        <i class="far fa-calendar-alt me-1" aria-hidden="true"></i>{{ page.date | date: "%B %Y" }}
-        {% endif %}
-      </small>
-      <div>
-        <a href="{{ '/projects' | relative_url }}" class="btn btn-sm btn-outline-secondary">
-          <i class="fas fa-arrow-left me-1" aria-hidden="true"></i>Back to Projects
-        </a>
-      </div>
+
+    <div class="project-content-body">
+      {{ content }}
     </div>
-  </footer>
-</article> 
+
+    <footer class="mt-12 pt-6" style="border-top: 1px solid var(--border);">
+      <div class="flex justify-between items-center flex-wrap gap-4">
+        <div>
+          {% if page.date %}
+          <small style="color: var(--text-muted);">
+            <i class="far fa-calendar-alt me-2" aria-hidden="true"></i>{{ page.date | date: "%B %Y" }}
+          </small>
+          {% endif %}
+        </div>
+        <div>
+          <a href="{{ '/projects' | relative_url }}" class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left me-2" aria-hidden="true"></i>Back to Projects
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<style>
+.project-detail-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.project-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.highlights-list li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.highlights-list i {
+  color: var(--accent);
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.project-content-body {
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+.project-content-body h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.project-content-body h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-content-body h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-content-body p {
+  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.project-content-body ul,
+.project-content-body ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  color: var(--text-secondary);
+}
+
+.project-content-body ul li,
+.project-content-body ol li {
+  margin-bottom: 0.5rem;
+}
+
+.project-content-body pre {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+}
+
+.project-content-body code {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+  color: var(--accent);
+}
+
+.project-content-body pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--text-main);
+}
+
+.project-content-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.project-content-body th,
+.project-content-body td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-content-body th {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-weight: 600;
+}
+
+.project-content-body tr:last-child td {
+  border-bottom: none;
+}
+
+.project-content-body blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.project-content-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.project-content-body a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.section-heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.project-image {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 768px) {
+  .project-page-title {
+    font-size: 2rem;
+  }
+
+  .project-content-body h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-content-body h3 {
+    font-size: 1.2rem;
+  }
+}
+</style> 
