@@ -1,0 +1,30 @@
+# IDE files
+.cursor/
+.claude/
+CLAUDE.md
+
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Dependencies
+.bundle/
+vendor/
+node_modules/
+
+# Lock files
+Gemfile.lock
+package-lock.json
+yarn.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
