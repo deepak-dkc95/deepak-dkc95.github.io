@@ -84,38 +84,62 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
 
 <!-- Professional Skills Section -->
 <section class="card-section">
-  <div class="professional-card">
-    <h2 class="text-center mb-4">
-      <i class="fas fa-chart-line me-2 text-gradient" aria-hidden="true"></i>Core Competencies
-    </h2>
-    <div class="row">
-      <div class="col-md-6">
-        <h6>Cloud Architecture & DevOps</h6>
-        <div class="skill-bar mb-3 visually-hidden">
-          <div class="skill-progress" data-percentage="92"></div>
+  <h2 class="text-center mb-12">
+    <i class="fas fa-chart-line me-2 text-gradient" aria-hidden="true"></i>Core Competencies
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-cloud" aria-hidden="true"></i>
         </div>
-        <h6>Infrastructure Security</h6>
-        <div class="skill-bar mb-3 visually-hidden">
-          <div class="skill-progress" data-percentage="88"></div>
-        </div>
-        <h6>Automation & Scripting</h6>
-        <div class="skill-bar mb-3 visually-hidden">
-          <div class="skill-progress" data-percentage="85"></div>
-        </div>
+        <h5>Cloud Architecture & DevOps</h5>
+        <p>Expertise in AWS, Azure, and cloud-native solutions. Building scalable infrastructure with Terraform and automation tools.</p>
       </div>
-      <div class="col-md-6">
-        <h6>System Administration</h6>
-        <div class="skill-bar mb-3 visually-hidden">
-          <div class="skill-progress" data-percentage="90"></div>
+    </div>
+    <div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
         </div>
-        <h6>Performance Optimization</h6>
-        <div class="skill-bar mb-3 visually-hidden">
-          <div class="skill-progress" data-percentage="86"></div>
+        <h5>Infrastructure Security</h5>
+        <p>Implementing security best practices, compliance standards, and threat detection across cloud environments.</p>
+      </div>
+    </div>
+    <div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-robot" aria-hidden="true"></i>
         </div>
-        <h6>Technical Documentation</h6>
-        <div class="skill-bar mb-3 visually-hidden">
-          <div class="skill-progress" data-percentage="94"></div>
+        <h5>Automation & Scripting</h5>
+        <p>Proficient in Python, Bash, and PowerShell for automating workflows, deployments, and infrastructure management.</p>
+      </div>
+    </div>
+    <div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-server" aria-hidden="true"></i>
         </div>
+        <h5>System Administration</h5>
+        <p>Linux/Unix administration, container orchestration with Kubernetes, and system optimization for performance.</p>
+      </div>
+    </div>
+    <div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+        </div>
+        <h5>Performance Optimization</h5>
+        <p>Monitoring, troubleshooting, and optimizing system performance using tools like Prometheus and Grafana.</p>
+      </div>
+    </div>
+    <div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-file-alt" aria-hidden="true"></i>
+        </div>
+        <h5>Technical Documentation</h5>
+        <p>Creating comprehensive documentation, runbooks, and knowledge bases for technical teams and stakeholders.</p>
       </div>
     </div>
   </div>
