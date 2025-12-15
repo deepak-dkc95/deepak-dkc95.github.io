@@ -107,25 +107,47 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
 
 <!-- Project Highlights Section -->
 <section class="card-section">
-  <div class="professional-card">
-    <h2 style="color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:700;">Project Highlights</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;">
+  <h2 class="text-center mb-12">
+    <i class="fas fa-project-diagram me-2 text-gradient" aria-hidden="true"></i>Featured Projects
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div>
       <div class="project-card">
-        <i class="fab fa-aws fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
-        <h5 style="font-weight:700;">Cloud Automation Suite</h5>
-        <p>Automated AWS infrastructure provisioning and monitoring using Terraform and custom scripts.</p>
-      </div>
-      <div class="project-card">
-        <i class="fas fa-shield-alt fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
-        <h5 style="font-weight:700;">Security Audit Platform</h5>
-        <p>Developed a platform for automated security audits and compliance checks for cloud environments.</p>
-      </div>
-      <div class="project-card">
-        <i class="fab fa-docker fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
-        <h5 style="font-weight:700;">Containerized CI/CD</h5>
-        <p>Built a scalable CI/CD pipeline using Docker, Kubernetes, and GitHub Actions for rapid deployments.</p>
+        <i class="fas fa-robot fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
+        <h5 style="font-weight:700;">AI Vendor Email Parser</h5>
+        <p>Automated email processing system using AI to extract structured data and intelligently manage ticketing workflows, reducing manual effort by 80%.</p>
+        <a href="{{ '/projects/ai-vendor-mailparser' | relative_url }}" class="btn btn-sm btn-outline-primary mt-3">Learn More →</a>
       </div>
     </div>
+    <div>
+      <div class="project-card">
+        <i class="fab fa-python fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
+        <h5 style="font-weight:700;">Vendor SLA Dashboard</h5>
+        <p>Django web application for tracking vendor downtimes, calculating SLA compliance, and generating comprehensive reports with interactive dashboards.</p>
+        <a href="{{ '/projects/django-sla-dashboard' | relative_url }}" class="btn btn-sm btn-outline-primary mt-3">Learn More →</a>
+      </div>
+    </div>
+    <div>
+      <div class="project-card">
+        <i class="fab fa-aws fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
+        <h5 style="font-weight:700;">Smart AWS Scheduler</h5>
+        <p>Serverless cost optimization system using Lambda to intelligently scale EC2 instances based on real-time utilization, achieving 40% cost reduction.</p>
+        <a href="{{ '/projects/smart-aws-scheduler' | relative_url }}" class="btn btn-sm btn-outline-primary mt-3">Learn More →</a>
+      </div>
+    </div>
+    <div>
+      <div class="project-card">
+        <i class="fas fa-server fa-2x mb-3" style="color:var(--accent);" aria-hidden="true"></i>
+        <h5 style="font-weight:700;">Headless Home Lab Server</h5>
+        <p>Repurposed old laptop into a full-featured home server with Tailscale VPN, Samba file sharing, and Prometheus/Grafana monitoring.</p>
+        <a href="{{ '/projects/home-lab-server' | relative_url }}" class="btn btn-sm btn-outline-primary mt-3">Learn More →</a>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-8">
+    <a href="{{ '/projects' | relative_url }}" class="btn btn-primary">
+      View All Projects <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
+    </a>
   </div>
 </section>
 
