@@ -17,42 +17,89 @@ description: Experienced systems engineer specializing in AWS, DevOps automation
 
 <!-- Professional Expertise Section -->
 <section class="card-section">
-  <div class="professional-card">
-    <h2 class="text-center mb-4">
-      <i class="fas fa-cogs me-2 text-gradient" aria-hidden="true"></i>Technical Expertise
-    </h2>
-    <div class="tech-stack">
-      <div class="tech-item">
-        <i class="fab fa-aws" aria-hidden="true"></i>
+  <h2 class="text-center mb-12">
+    <i class="fas fa-cogs me-2 text-gradient" aria-hidden="true"></i>Technical Expertise
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fab fa-aws" aria-hidden="true"></i>
+        </div>
         <h5>AWS Cloud</h5>
+        <p>Comprehensive AWS services expertise including EC2, S3, Lambda, RDS, and CloudFormation for scalable cloud solutions.</p>
       </div>
-      <div class="tech-item">
-        <i class="fab fa-docker" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fab fa-docker" aria-hidden="true"></i>
+        </div>
         <h5>Docker</h5>
+        <p>Containerization and microservices architecture with Docker for consistent development and deployment environments.</p>
       </div>
-      <div class="tech-item">
-        <i class="fas fa-kubernetes" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fas fa-dharmachakra" aria-hidden="true"></i>
+        </div>
         <h5>Kubernetes</h5>
+        <p>Container orchestration, scaling, and management with Kubernetes for production-grade applications.</p>
       </div>
-      <div class="tech-item">
-        <i class="fab fa-python" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fab fa-python" aria-hidden="true"></i>
+        </div>
         <h5>Python</h5>
+        <p>Scripting, automation, and application development using Python with frameworks like Django and Flask.</p>
       </div>
-      <div class="tech-item">
-        <i class="fab fa-js-square" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fab fa-js-square" aria-hidden="true"></i>
+        </div>
         <h5>JavaScript</h5>
+        <p>Full-stack development with modern JavaScript, Node.js, and popular frameworks for web applications.</p>
       </div>
-      <div class="tech-item">
-        <i class="fab fa-linux" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fab fa-linux" aria-hidden="true"></i>
+        </div>
         <h5>Linux</h5>
+        <p>Deep expertise in Linux system administration, shell scripting, and server management across distributions.</p>
       </div>
-      <div class="tech-item">
-        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        </div>
         <h5>Security</h5>
+        <p>Implementing security best practices, vulnerability assessments, and compliance frameworks for robust systems.</p>
       </div>
-      <div class="tech-item">
-        <i class="fas fa-code-branch" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fas fa-code-branch" aria-hidden="true"></i>
+        </div>
         <h5>CI/CD</h5>
+        <p>Automated pipelines with Jenkins, GitHub Actions, and GitLab CI for continuous integration and deployment.</p>
+      </div>
+    </div>
+    <div>
+      <div class="tech-card">
+        <div class="tech-icon">
+          <i class="fas fa-layer-group" aria-hidden="true"></i>
+        </div>
+        <h5>Terraform</h5>
+        <p>Infrastructure as Code with Terraform for automated, version-controlled cloud infrastructure provisioning.</p>
       </div>
     </div>
   </div>
